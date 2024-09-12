@@ -1,0 +1,239 @@
+==8120== Invalid read of size 8
+==8120==    at 0x10C256: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10B673: main (main.cpp:115)
+==8120==  Address 0x4e27e00 is 0 bytes inside a block of size 24 free'd
+==8120==    at 0x484B8AF: operator delete(void*) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10CE82: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10A67B: delete_animals(Animal**, int) (main.cpp:43)
+==8120==    by 0x10B658: main (main.cpp:114)
+==8120==  Block was alloc'd at
+==8120==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10BF98: Dog::Dog() (Dog.cpp:18)
+==8120==    by 0x10B39C: main (main.cpp:96)
+==8120== 
+==8120== Invalid write of size 8
+==8120==    at 0x10CDA2: Brain::~Brain() (Brain.cpp:66)
+==8120==    by 0x10CE76: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10B673: main (main.cpp:115)
+==8120==  Address 0x4e27e00 is 0 bytes inside a block of size 24 free'd
+==8120==    at 0x484B8AF: operator delete(void*) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10CE82: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10A67B: delete_animals(Animal**, int) (main.cpp:43)
+==8120==    by 0x10B658: main (main.cpp:114)
+==8120==  Block was alloc'd at
+==8120==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10BF98: Dog::Dog() (Dog.cpp:18)
+==8120==    by 0x10B39C: main (main.cpp:96)
+==8120== 
+Brain destroyed
+==8120== Invalid read of size 8
+==8120==    at 0x10CDD4: Brain::~Brain() (Brain.cpp:69)
+==8120==    by 0x10CE76: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10B673: main (main.cpp:115)
+==8120==  Address 0x4e27e08 is 8 bytes inside a block of size 24 free'd
+==8120==    at 0x484B8AF: operator delete(void*) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10CE82: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10A67B: delete_animals(Animal**, int) (main.cpp:43)
+==8120==    by 0x10B658: main (main.cpp:114)
+==8120==  Block was alloc'd at
+==8120==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10BF98: Dog::Dog() (Dog.cpp:18)
+==8120==    by 0x10B39C: main (main.cpp:96)
+==8120== 
+==8120== Invalid read of size 8
+==8120==    at 0x10CDE1: Brain::~Brain() (Brain.cpp:69)
+==8120==    by 0x10CE76: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10B673: main (main.cpp:115)
+==8120==  Address 0x4e27e08 is 8 bytes inside a block of size 24 free'd
+==8120==    at 0x484B8AF: operator delete(void*) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10CE82: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10A67B: delete_animals(Animal**, int) (main.cpp:43)
+==8120==    by 0x10B658: main (main.cpp:114)
+==8120==  Block was alloc'd at
+==8120==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10BF98: Dog::Dog() (Dog.cpp:18)
+==8120==    by 0x10B39C: main (main.cpp:96)
+==8120== 
+==8120== Invalid read of size 8
+==8120==    at 0x10CDE9: Brain::~Brain() (Brain.cpp:69)
+==8120==    by 0x10CE76: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10B673: main (main.cpp:115)
+==8120==  Address 0x4e27e08 is 8 bytes inside a block of size 24 free'd
+==8120==    at 0x484B8AF: operator delete(void*) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10CE82: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10A67B: delete_animals(Animal**, int) (main.cpp:43)
+==8120==    by 0x10B658: main (main.cpp:114)
+==8120==  Block was alloc'd at
+==8120==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10BF98: Dog::Dog() (Dog.cpp:18)
+==8120==    by 0x10B39C: main (main.cpp:96)
+==8120== 
+==8120== Invalid read of size 8
+==8120==    at 0x10CDF1: Brain::~Brain() (Brain.cpp:69)
+==8120==    by 0x10CE76: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10B673: main (main.cpp:115)
+==8120==  Address 0x4e27e60 is 0 bytes inside a block of size 3,208 free'd
+==8120==    at 0x484CA8F: operator delete[](void*) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10CE2A: Brain::~Brain() (Brain.cpp:69)
+==8120==    by 0x10CE76: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10A67B: delete_animals(Animal**, int) (main.cpp:43)
+==8120==    by 0x10B658: main (main.cpp:114)
+==8120==  Block was alloc'd at
+==8120==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10C8D0: Brain::Brain() (Brain.cpp:16)
+==8120==    by 0x10BFA3: Dog::Dog() (Dog.cpp:18)
+==8120==    by 0x10B39C: main (main.cpp:96)
+==8120== 
+==8120== Invalid read of size 8
+==8120==    at 0x10CE00: Brain::~Brain() (Brain.cpp:69)
+==8120==    by 0x10CE76: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10B673: main (main.cpp:115)
+==8120==  Address 0x4e27e08 is 8 bytes inside a block of size 24 free'd
+==8120==    at 0x484B8AF: operator delete(void*) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10CE82: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10A67B: delete_animals(Animal**, int) (main.cpp:43)
+==8120==    by 0x10B658: main (main.cpp:114)
+==8120==  Block was alloc'd at
+==8120==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10BF98: Dog::Dog() (Dog.cpp:18)
+==8120==    by 0x10B39C: main (main.cpp:96)
+==8120== 
+==8120== Invalid read of size 8
+==8120==    at 0x49CA424: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::~basic_string() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==8120==    by 0x10CE14: Brain::~Brain() (Brain.cpp:69)
+==8120==    by 0x10CE76: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10B673: main (main.cpp:115)
+==8120==  Address 0x4e28ac8 is 3,176 bytes inside a block of size 3,208 free'd
+==8120==    at 0x484CA8F: operator delete[](void*) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10CE2A: Brain::~Brain() (Brain.cpp:69)
+==8120==    by 0x10CE76: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10A67B: delete_animals(Animal**, int) (main.cpp:43)
+==8120==    by 0x10B658: main (main.cpp:114)
+==8120==  Block was alloc'd at
+==8120==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10C8D0: Brain::Brain() (Brain.cpp:16)
+==8120==    by 0x10BFA3: Dog::Dog() (Dog.cpp:18)
+==8120==    by 0x10B39C: main (main.cpp:96)
+==8120== 
+==8120== Invalid free() / delete / delete[] / realloc()
+==8120==    at 0x484B8AF: operator delete(void*) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10CE14: Brain::~Brain() (Brain.cpp:69)
+==8120==    by 0x10CE76: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10B673: main (main.cpp:115)
+==8120==  Address 0x4e28ec0 is 0 bytes inside a block of size 31 free'd
+==8120==    at 0x484B8AF: operator delete(void*) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10CE14: Brain::~Brain() (Brain.cpp:69)
+==8120==    by 0x10CE76: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10A67B: delete_animals(Animal**, int) (main.cpp:43)
+==8120==    by 0x10B658: main (main.cpp:114)
+==8120==  Block was alloc'd at
+==8120==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x49C9F9E: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_assign(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==8120==    by 0x49CA45C: std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::operator=(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.32)
+==8120==    by 0x10CCC0: Brain::newIdea(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (Brain.cpp:50)
+==8120==    by 0x10A8B8: setIdeas(Brain*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >*) (main.cpp:78)
+==8120==    by 0x10B418: main (main.cpp:98)
+==8120== 
+==8120== Invalid read of size 8
+==8120==    at 0x10CE1B: Brain::~Brain() (Brain.cpp:69)
+==8120==    by 0x10CE76: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10B673: main (main.cpp:115)
+==8120==  Address 0x4e27e08 is 8 bytes inside a block of size 24 free'd
+==8120==    at 0x484B8AF: operator delete(void*) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10CE82: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10A67B: delete_animals(Animal**, int) (main.cpp:43)
+==8120==    by 0x10B658: main (main.cpp:114)
+==8120==  Block was alloc'd at
+==8120==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10BF98: Dog::Dog() (Dog.cpp:18)
+==8120==    by 0x10B39C: main (main.cpp:96)
+==8120== 
+==8120== Invalid free() / delete / delete[] / realloc()
+==8120==    at 0x484CA8F: operator delete[](void*) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10CE2A: Brain::~Brain() (Brain.cpp:69)
+==8120==    by 0x10CE76: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10B673: main (main.cpp:115)
+==8120==  Address 0x4e27e60 is 0 bytes inside a block of size 3,208 free'd
+==8120==    at 0x484CA8F: operator delete[](void*) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10CE2A: Brain::~Brain() (Brain.cpp:69)
+==8120==    by 0x10CE76: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10A67B: delete_animals(Animal**, int) (main.cpp:43)
+==8120==    by 0x10B658: main (main.cpp:114)
+==8120==  Block was alloc'd at
+==8120==    at 0x484A2F3: operator new[](unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10C8D0: Brain::Brain() (Brain.cpp:16)
+==8120==    by 0x10BFA3: Dog::Dog() (Dog.cpp:18)
+==8120==    by 0x10B39C: main (main.cpp:96)
+==8120== 
+==8120== Invalid free() / delete / delete[] / realloc()
+==8120==    at 0x484B8AF: operator delete(void*) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10CE82: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10B673: main (main.cpp:115)
+==8120==  Address 0x4e27e00 is 0 bytes inside a block of size 24 free'd
+==8120==    at 0x484B8AF: operator delete(void*) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10CE82: Brain::~Brain() (Brain.cpp:70)
+==8120==    by 0x10C264: Dog::~Dog() (Dog.cpp:46)
+==8120==    by 0x10C2DE: Dog::~Dog() (Dog.cpp:48)
+==8120==    by 0x10A67B: delete_animals(Animal**, int) (main.cpp:43)
+==8120==    by 0x10B658: main (main.cpp:114)
+==8120==  Block was alloc'd at
+==8120==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==8120==    by 0x10BF98: Dog::Dog() (Dog.cpp:18)
+==8120==    by 0x10B39C: main (main.cpp:96)
+==8120== 
+Dog is destroyed
+Animal destructor called
+==8120== 
+==8120== HEAP SUMMARY:
+==8120==     in use at exit: 0 bytes in 0 blocks
+==8120==   total heap usage: 194 allocs, 206 frees, 128,806 bytes allocated
+==8120== 
+==8120== All heap blocks were freed -- no leaks are possible
+==8120== 
+==8120== For lists of detected and suppressed errors, rerun with: -s
+==8120== ERROR SUMMARY: 220 errors from 12 contexts (suppressed: 0 from 0)
