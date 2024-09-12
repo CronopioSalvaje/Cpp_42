@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 15:22:04 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/09/12 17:08:31 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/12 22:00:09 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ class Harl
 		void info( void );
 		void warning( void );
 		void error( void );
-		std::string filter;
+		int filter;
 	public:
 		void complain( std::string level );
-		void setFilter(std::string filter);
+		void setFilter(int filter);
 };
 
 
