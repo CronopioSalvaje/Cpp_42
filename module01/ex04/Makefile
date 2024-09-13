@@ -7,7 +7,7 @@ OBJS = main.o
 
 INC = Includes/
 
-NAME = violence
+NAME = replace
 
 all : $(NAME)
 
