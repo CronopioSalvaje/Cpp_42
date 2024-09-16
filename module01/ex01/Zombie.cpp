@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 08:17:35 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/04/11 08:15:47 by ls               ###   ########.fr       */
+/*   Updated: 2024/09/16 07:34:50 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 Zombie::Zombie()
 {
-   this->name = "anonimous"; 
+   this->name = "John Doe"; 
 }
 
 Zombie::Zombie(std::string name)
