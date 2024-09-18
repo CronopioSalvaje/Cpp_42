@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 18:35:00 by ls                #+#    #+#             */
-/*   Updated: 2024/09/18 08:05:55 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/18 08:31:46 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ bool Fixed::check_overflow(int a, int b, long long int (*oper)(int, int))
 {
     int fixedMax = Fixed::getMaxInt();
     int fixedMin = Fixed::getMinInt();
-    std::cout << "fixedMax : " << fixedMax <<" - fixedMin : " << fixedMin << std::endl;
+    //std::cout << "fixedMax : " << fixedMax <<" - fixedMin : " << fixedMin << std::endl;
     //std::cout << "a : " << a <<" - b : " << b << std::endl;
     long long int result = oper(a, b);
     //std::cout << "result : " << result << std::endl;
