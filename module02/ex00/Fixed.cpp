@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 18:35:00 by ls                #+#    #+#             */
-/*   Updated: 2024/08/02 21:42:35 by ls               ###   ########.fr       */
+/*   Updated: 2024/09/16 15:24:55 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,12 @@ Fixed::~Fixed()
     std::cout << "Destructor called" << std::endl;
 }
 
-
+void Fixed::operator=(Fixed const &b)
+{
+    std::cout << "Copy assignment operator called" << std::endl;
+    this->integer = b.getRawBits();
+}
+   
 int Fixed::getRawBits(void) const
 {
     std::cout << "getRawBits member function called" << std::endl;

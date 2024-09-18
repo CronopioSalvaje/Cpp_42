@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 18:35:00 by ls                #+#    #+#             */
-/*   Updated: 2024/08/02 22:47:20 by ls               ###   ########.fr       */
+/*   Updated: 2024/09/16 15:28:29 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ Fixed::Fixed(Fixed const &tc)
 {
     std::cout << "Copy constructor called" << std::endl;
     this->integer = tc.getRawBits(); 
+}
+
+void Fixed::operator=(Fixed const &b)
+{        
+    std::cout << "Copy assignment operator called" << std::endl;
+    this->integer = b.getRawBits();
 }
 
 Fixed::Fixed(int integer) : integer(integer << this->fraction)

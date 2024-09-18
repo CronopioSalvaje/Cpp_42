@@ -7,7 +7,7 @@ OBJS = main.o ClapTrap.o ScavTrap.o
 
 INC = Includes/
 
-NAME = clapTrap
+NAME = scavTrap
 
 all : $(NAME)
 
