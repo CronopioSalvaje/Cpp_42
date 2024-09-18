@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 13:25:27 by ls                #+#    #+#             */
-/*   Updated: 2024/08/07 22:11:11 by ls               ###   ########.fr       */
+/*   Updated: 2024/09/18 15:09:37 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,19 @@ void FragTrap::attack(const std::string& target)
         std::cout << "FragTrap " << this->getName() << " has no energy points to attack!" << std::endl;
     }
 }
-    void FragTrap::toString(void)
-    {
-        std::cout << "ScavTrap ";
-        std::cout << "My name is " << this->_name;
-        ClapTrap::toString();
-    }
-    void FragTrap::highFivesGuys(void)
-    {
-        std::cout << "FragTrap " << this->getName() << " high fives guys!" << std::endl;
-    }
-    FragTrap::~FragTrap()
-    {
-        std::cout << "FragTrap " << _name << " is destroyed" << std::endl;
-    }
+void FragTrap::toString(void)
+{
+    std::cout << "ScavTrap ";
+    std::cout << "My name is " << this->_name;
+    ClapTrap::toString();
+}
+
+void FragTrap::highFivesGuys(void)
+{
+    std::cout << "FragTrap " << this->getName() << " high fives guys!" << std::endl;
+}
+
+FragTrap::~FragTrap()
+{
+    std::cout << "FragTrap " << this->_name << " is destroyed" << std::endl;
+}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:47:30 by ls                #+#    #+#             */
-/*   Updated: 2024/08/07 21:24:40 by ls               ###   ########.fr       */
+/*   Updated: 2024/09/18 15:07:50 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 class FragTrap : virtual public ClapTrap
 {
+    private:
     public:
         FragTrap(void);
         FragTrap(std::string name);

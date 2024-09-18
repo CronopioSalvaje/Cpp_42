@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:49:01 by ls                #+#    #+#             */
-/*   Updated: 2024/08/06 13:31:50 by ls               ###   ########.fr       */
+/*   Updated: 2024/09/18 15:19:06 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,14 @@
 #include "ClapTrap.hpp"
 #include <iostream>
 
+ScavTrap::ScavTrap(): ClapTrap()
+{
+    std::cout << "ScavTrap constructor called for " << this->_name << std::endl;
+}
+
 ScavTrap::ScavTrap(std::string name): ClapTrap(name)
 {
-    std::cout << "ScavTrap constructor called for " << name << std::endl;
+    std::cout << "ScavTrap constructor called for " << this->_name << std::endl;
 }
 
 ScavTrap::ScavTrap(ScavTrap const &cl): ClapTrap(cl)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 09:58:18 by ls                #+#    #+#             */
-/*   Updated: 2024/08/06 13:15:32 by ls               ###   ########.fr       */
+/*   Updated: 2024/09/18 15:20:09 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class ClapTrap
         unsigned int _energyPoints;
         unsigned int _attackDamage;
     public:
+        ClapTrap();
         ClapTrap(std::string name);
         ClapTrap(ClapTrap const &cl);
         ~ClapTrap();

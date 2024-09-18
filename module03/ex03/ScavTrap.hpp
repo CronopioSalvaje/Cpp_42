@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:47:30 by ls                #+#    #+#             */
-/*   Updated: 2024/08/07 21:28:51 by ls               ###   ########.fr       */
+/*   Updated: 2024/09/18 15:08:08 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,16 @@
 
 class ScavTrap : virtual public ClapTrap
 {
-private:
-    
-public:
-    ScavTrap(void);
-    ScavTrap(std::string name);
-    ScavTrap(ScavTrap const &cl);
-    void operator=(ScavTrap const &cl);
-    void attack(const std::string& target);
-    void toString(void);
-    void guardGate();
-    ~ScavTrap();
+    private:    
+    public:
+        ScavTrap(void);
+        ScavTrap(std::string name);
+        ScavTrap(ScavTrap const &cl);
+        void operator=(ScavTrap const &cl);
+        void attack(const std::string& target);
+        void toString(void);
+        void guardGate();
+        ~ScavTrap();
 };
 
 

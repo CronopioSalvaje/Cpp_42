@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 09:58:31 by ls                #+#    #+#             */
-/*   Updated: 2024/08/07 22:11:24 by ls               ###   ########.fr       */
+/*   Updated: 2024/09/18 15:21:33 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(): _name("No name"), _hitPoints(100), _energyPoints(50), _attackDamage(20)
+ClapTrap::ClapTrap(): _name("DoeTrap"), _hitPoints(100), _energyPoints(50), _attackDamage(20)
 {    
 }
 
