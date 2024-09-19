@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 08:16:26 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/09/18 14:56:50 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/19 11:01:49 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,39 +18,28 @@
 
 int main( void )
 {
-   ClapTrap thor("Thor");
-   ClapTrap conan(thor);
-   conan.setName("Conan");
-   ClapTrap joe = thor;  
-   joe.setName("Joe");
 
-   thor.attack("Conan");
-   conan.takeDamage(2);
-   joe.attack("conan");
-   conan.takeDamage(2);
-   conan.beRepaired(1);
-   thor.toString();
-   conan.toString();
-   joe.toString();     
+   ScavTrap yoo("yooo");
+   yoo.guardGate();
+   ClapTrap doctor("doctor");
+   ScavTrap warrior("warrior");
 
-   ScavTrap Yoo("Yooo");
-   Yoo.toString();
-   Yoo.attack("Conan");
-   Yoo.guardGate();
-   
-   ScavTrap doctor = Yoo;
-   doctor.setName("Who");
-   ScavTrap warrior(Yoo);
-   warrior.setName("Hug");
+   ScavTrap clone = warrior;
 
+   for(int i = 0; i < 10 ; i++)
+   {
+      yoo.attack("warrior");
+      warrior.takeDamage(yoo.getAttackDamage());
+      doctor.attack("yoo");
+      yoo.takeDamage(doctor.getAttackDamage());
+      warrior.attack("yoo");
+      yoo.takeDamage(warrior.getAttackDamage());
+      if (i % 2 == 0)
+        warrior.beRepaired(1);
+   }
    
-   warrior.setEnergyPoints(2);
-   doctor.setEnergyPoints(588);
-   Yoo.setEnergyPoints(42);
-   std::cout << "Warrior energy : " << warrior.getEnergyPoints() << std::endl;
-   std::cout << "doctor energy : " << doctor.getEnergyPoints() << std::endl;
-   std::cout << "Yoo energy : " << Yoo.getEnergyPoints() << std::endl;
-   
+   std::cout << "Warrior : energy " << warrior.getEnergyPoints() << std::endl;
+   std::cout << "Warrior clone : energy " << clone.getEnergyPoints() << std::endl;
 
    return 0;
 }

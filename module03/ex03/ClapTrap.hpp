@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 09:58:18 by ls                #+#    #+#             */
-/*   Updated: 2024/08/07 21:22:20 by ls               ###   ########.fr       */
+/*   Updated: 2024/09/19 11:50:31 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,34 +17,25 @@
 
 class ClapTrap
 {
-    //private:
-    
+    private:
     protected:
         std::string _name;
-        unsigned int _hitPoints;
-        unsigned int _energyPoints;
-        unsigned int _attackDamage;
-    public:
+        int _hitPoints;
+        int _energyPoints;
+        int _attackDamage;
         ClapTrap();
-        ClapTrap(std::string name);
+        
+    public:
+          ClapTrap(std::string name);
         ClapTrap(ClapTrap const &cl);
         ~ClapTrap();
         void operator=(ClapTrap const &cl);
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
-        // getters
-        std::string getName(void) const; 
-        unsigned int getHitPoints(void) const; 
-        unsigned int getEnergyPoints(void) const; 
-        unsigned int getAttackDamage(void) const;
-        // setters
-        void setName(std::string name); 
-        void setHitPoints(unsigned int value); 
-        void setEnergyPoints(unsigned int value); 
-        void setAttackDamage(unsigned int value); 
-        void toString(void);
-
+        int getEnergyPoints(void);
+        int getHitPoints(void);
+        int getAttackDamage(void);
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:47:30 by ls                #+#    #+#             */
-/*   Updated: 2024/09/18 15:11:32 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/19 11:15:28 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,12 @@
 class FragTrap : public ClapTrap
 {
 private:
-    
+    FragTrap(void);    
 public:
-    FragTrap(void);
     FragTrap(std::string name);
     FragTrap(FragTrap const &cl);
     void operator=(FragTrap const &cl);
     void attack(const std::string& target);
-    void toString(void);
     void highFivesGuys(void);
     ~FragTrap();
 };

@@ -3,34 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 08:16:26 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/08/06 11:48:08 by ls               ###   ########.fr       */
+/*   Updated: 2024/09/19 10:23:22 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "ClapTrap.hpp"
-#include "ScavTrap.cpp"
-
-
 
 int main( void )
 {
+   /**
+    * Constructor with string name
+    */
    ClapTrap thor("Thor");
-   ClapTrap conan(thor);
-   conan.setName("Conan");
-   ClapTrap joe = thor;  
-   joe.setName("Joe");
+   
+   /**
+    * Copie Constructor
+    */
+   ClapTrap thor2(thor);
+   
+   /**
+    * Operator Overload
+    */
+   ClapTrap thor3 = thor;  
+   
 
-   thor.attack("Conan");
-   conan.takeDamage(2);
-   joe.attack("conan");
-   conan.takeDamage(2);
-   conan.beRepaired(1);
-   thor.toString();
-   conan.toString();
-   joe.toString();      
+   ClapTrap conan("Conan");
+   ClapTrap xena("Xena");
+   
+   for(int i= 0 ; i < 11; i++)
+   {
+      thor.attack("Conan");
+      conan.takeDamage(1);
+      if (i % 2 == 0)
+         xena.takeDamage(1);
+      else
+         xena.beRepaired(1);
+   }
    return 0;
 }

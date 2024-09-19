@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:47:30 by ls                #+#    #+#             */
-/*   Updated: 2024/09/18 15:08:08 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/19 11:52:38 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@
 
 class ScavTrap : virtual public ClapTrap
 {
-    private:    
+    protected:
+        ScavTrap();
+        
     public:
-        ScavTrap(void);
         ScavTrap(std::string name);
         ScavTrap(ScavTrap const &cl);
         void operator=(ScavTrap const &cl);
