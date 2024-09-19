@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 19:24:05 by ls                #+#    #+#             */
-/*   Updated: 2024/08/16 15:18:16 by ls               ###   ########.fr       */
+/*   Updated: 2024/09/19 22:38:55 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ class Character : public ICharacter
         AMateria **old;
         int unequiped;
         void init_character(void);
-        void add_to_old(AMateria *m);
+        void addToOld(AMateria *m);
         void updateInventaryCount(void);
-        AMateria **copy_array(AMateria **old, int size);
+        AMateria **copyArray(AMateria **old, int size);
     public:
         Character();
         Character(std::string name);

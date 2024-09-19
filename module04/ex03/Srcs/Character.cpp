@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 19:30:12 by ls                #+#    #+#             */
-/*   Updated: 2024/09/19 22:36:04 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/19 22:38:55 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void Character::equip(AMateria* m)
     }
     else
     {
-        this->add_to_old(m);
+        this->addToOld(m);
     }
 }
 
@@ -85,7 +85,7 @@ void Character::unequip(int idx)
 {
     if (idx < 4)
     {
-        this->add_to_old(this->inventary[idx]);
+        this->addToOld(this->inventary[idx]);
         this->inventary[idx] = NULL;
         this->updateInventaryCount();
     }
@@ -152,7 +152,7 @@ void Character::init_character(void)
     }
 }
 
-AMateria **Character::copy_array(AMateria **old, int size)
+AMateria **Character::copyArray(AMateria **old, int size)
 {
     AMateria **newArray =  new AMateria* [size + 1];
     
@@ -161,7 +161,7 @@ AMateria **Character::copy_array(AMateria **old, int size)
     return (newArray);
 }
 
-void Character::add_to_old(AMateria *m)
+void Character::addToOld(AMateria *m)
 {
     AMateria **clone = NULL;
     if (this->old[0] == NULL)
@@ -171,7 +171,7 @@ void Character::add_to_old(AMateria *m)
     }
     else
     {
-        clone = this->copy_array(this->old, this->unequiped);
+        clone = this->copyArray(this->old, this->unequiped);
         clone[this->unequiped] = m;
         delete [] this->old;
         this->old = clone;
