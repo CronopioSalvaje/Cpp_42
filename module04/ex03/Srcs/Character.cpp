@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 19:30:12 by ls                #+#    #+#             */
-/*   Updated: 2024/08/16 18:15:19 by ls               ###   ########.fr       */
+/*   Updated: 2024/09/19 22:36:04 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,40 @@ Character::Character(): name("no name")
 Character::Character(std::string name): name(name)
 {    
     this->init_character();
+}
+
+Character::Character(Character const & c)
+{   
+    this->name = c.name;
+    this->equiped = c.equiped;
+    this->init_character();
+    for (int i = 0; i < 4; i++)
+    {
+        if (c.inventary[i])
+            this->inventary[i] = c.inventary[i]->clone();
+        else
+            this->inventary[i] = NULL;
+    }
+
+}
+
+Character &Character::operator=(Character const & c)
+{
+    this->name = c.name;
+    this->equiped = c.equiped;
+    for (int i = 0; i < 4; i++)
+    {
+        if (this->inventary[i])
+        {
+            delete(this->inventary[i]);
+            this->inventary[i] = NULL;
+        }
+        if (c.inventary[i])
+            this->inventary[i] = c.inventary[i]->clone();
+        else
+            this->inventary[i] = NULL;
+    }
+    return *this;
 }
 
 std::string const & Character::getName() const
@@ -42,7 +76,9 @@ void Character::equip(AMateria* m)
         this->updateInventaryCount();
     }
     else
+    {
         this->add_to_old(m);
+    }
 }
 
 void Character::unequip(int idx)
@@ -57,10 +93,20 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
+    if (idx >= MAX_ITEMS ||  this->inventary[idx] == NULL)
+    {
+        std::cout << this->name << " says : no materia stored here !!" << std::endl;
+        return;
+    }    
     if (idx >= 0 && idx < MAX_ITEMS)
     {
-        this->inventary[idx]->use(target);
-        this->unequip(idx);        
+        if ( this->inventary[idx])
+        {
+            this->inventary[idx]->use(target);
+            this->unequip(idx);            
+        }
+        else 
+            std::cout << this->name << " says : no materia stored here !!" << std::endl;
     }
 }
 
@@ -118,7 +164,6 @@ AMateria **Character::copy_array(AMateria **old, int size)
 void Character::add_to_old(AMateria *m)
 {
     AMateria **clone = NULL;
-    std::cout << "this->unequiped " << this->unequiped << std::endl;
     if (this->old[0] == NULL)
     {
         this->old[0] = m;

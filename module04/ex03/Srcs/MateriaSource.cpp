@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 20:32:24 by ls                #+#    #+#             */
-/*   Updated: 2024/08/16 18:13:19 by ls               ###   ########.fr       */
+/*   Updated: 2024/09/19 22:10:16 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,12 @@ MateriaSource &MateriaSource::operator=(MateriaSource const & materia)
 {
     for (int i = 0; i < MAX_ITEMS; i++)
     {
-        if (this->materia[i] != NULL)
+        if (materia.materia[i] != NULL)
+        {
             delete this->materia[i];
-        this->materia[i] = materia.materia[i];
+            this->materia[i] = materia.materia[i]->clone();
+            std::cout <<  this->materia[i]->getType() << std::endl;            
+        }
     }
     return *this;
 }
@@ -56,7 +59,7 @@ void MateriaSource::learnMateria(AMateria* m)
             this->materia[i] = m;
             break;
         }   
-                 
+
     }
 }
 
@@ -78,7 +81,10 @@ MateriaSource::~MateriaSource()
     for (int i = 0; i < MAX_ITEMS; i++)
     {
         if (this->materia[i] != NULL)
-            delete this->materia[i];    
+        {
+            delete this->materia[i];
+            this->materia[i] = NULL;
+        }
     }
     //std::cout << "MateriaSource is deleted" << std::endl;
 }
