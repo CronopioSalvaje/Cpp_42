@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 08:16:26 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/09/20 12:37:12 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/20 17:47:01 by ls               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <string>
 #include <cstdlib>
 #include <cstring>
-#include <boost/algorithm/string.hpp>
+
 
 int	getNumberOfLines(std::string path)
 {
@@ -171,6 +171,19 @@ int formatClassName(char *className)
 	return (0);
 }
 
+std::string uppercase(std::string str)
+{
+	int i = 0;
+	char *old = (char *) str.c_str();
+	while (old[i])
+	{
+		old[i] = toupper(old[i]);
+		i++;
+	}
+	std::string newStr(old);
+	return newStr;
+}
+
 int	main(int ac, char **av, char **env)
 {
 	int	i;
@@ -211,7 +224,7 @@ int	main(int ac, char **av, char **env)
 			std::string replacedLines[nbLines];
 			if (readLines(replacedLines, "class.temp") == -1)
 				return (1);
-			if (replaceSeq(replacedLines, "TEMPLATE", "TEST", replace[j], nbLines) == -1)
+			if (replaceSeq(replacedLines, "TEMPLATE", uppercase(newStr), replace[j], nbLines) == -1)
 				return (1);
 
 			j++;
