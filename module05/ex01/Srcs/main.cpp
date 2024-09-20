@@ -6,11 +6,12 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 23:28:56 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/09/20 08:23:08 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/20 12:42:45 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/Bureaucrat.hpp"
+#include "../Includes/Form.hpp"
 
 int main()
 {
