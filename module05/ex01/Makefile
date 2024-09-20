@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRCS = Srcs/Bureaucrat.cpp Srcs/main.cpp 
+SRCS = Srcs/Bureaucrat.cpp Srcs/main.cpp Srcs/Form.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

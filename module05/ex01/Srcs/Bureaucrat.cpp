@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 22:50:16 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/09/20 08:35:04 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/20 23:38:19 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,10 @@ void Bureaucrat::demote(){
     }
 }
 
+void Bureaucrat::signForm(Form &form)
+{
+    std::cout << this->name << "signed " << form.getName() << std::endl;
+}
 
 std::ostream &operator<<(std::ostream &cout, Bureaucrat const &dusty)
 {
