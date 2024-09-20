@@ -1,0 +1,24 @@
+#include "template.hpp"
+
+template::template()
+{    
+}
+
+template::template(std::string name)
+{
+}
+
+template::template(template const &cl)
+{    
+
+}
+
+template::~template()
+{
+   
+}
+
+void template::operator=(template const &cl)
+{
+
+}

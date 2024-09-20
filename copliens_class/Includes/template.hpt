@@ -1,0 +1,18 @@
+#ifndef TEMPLATE_H
+#define TEMPLATE_H
+
+#include <iostream>
+
+class template
+{
+    private:
+        std::string _name;
+    public:
+        template(void);
+        template(std::string name);
+        template(template const &cl);
+        ~template();
+        void operator=(template const &cl);
+};
+
+#endif
