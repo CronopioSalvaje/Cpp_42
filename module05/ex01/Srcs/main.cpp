@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 23:28:56 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/09/21 10:23:17 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/21 21:38:09 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,8 @@ int main()
     president->signForm(party);
     std::cout << party ;
     
+
+    delete president;
+    delete toto;
     return 0;    
 }

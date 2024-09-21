@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 23:28:56 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/09/21 17:29:46 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/21 21:34:33 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ int main()
     president->signForm(pardon);
     pardon.execute(*president);
     
-    
+    delete plouc;
+    delete president;
 
     
 
