@@ -7,7 +7,7 @@ OBJS = $(SRCS:.cpp=.o)
 
 INC = Includes/
 
-NAME = materia
+NAME = scalarConverter
 
 all : $(NAME)
 

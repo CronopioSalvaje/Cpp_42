@@ -2,6 +2,7 @@
 #define SCALARCONVERTER_H
 
 #include <iostream>
+#include <cstdlib>
 
 class ScalarConverter
 {
@@ -9,7 +10,7 @@ class ScalarConverter
         ScalarConverter();
     public:
         ~ScalarConverter();
-       void convert(std::string lit);
+       static void convert(std::string lit);
 };
 
 #endif
