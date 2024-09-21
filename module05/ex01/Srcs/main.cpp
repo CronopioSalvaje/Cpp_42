@@ -6,53 +6,42 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 23:28:56 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/09/20 12:42:45 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/21 10:23:17 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/Bureaucrat.hpp"
 #include "../Includes/Form.hpp"
+#include "../Includes/Bureaucrat.hpp"
+
+#define line std::cout << std::endl;
 
 int main()
 {
-    Bureaucrat *toto =  new Bureaucrat("Toto", 155);
-    std::cout << *toto << std::endl;
+    Bureaucrat *toto =  new Bureaucrat("Toto", 5);
+    Bureaucrat *president =  new Bureaucrat("M President", 1);
     
-    toto->demote();
-    std::cout << *toto << std::endl;
+    Form outOfBouds("fake", 456, 0);
+    Form pres("Presidential grace", 4, 5);
+    Form party("Party in the Presidential House", 1, 5);
+    
+    line;
+    std::cout << *toto ;
+    toto->signForm(pres);
+    std::cout << pres ;
     toto->promote();
-    std::cout << *toto << std::endl;
-        toto->promote();
-    std::cout << *toto << std::endl;
-        toto->promote();
-    std::cout << *toto << std::endl;
-        toto->promote();
-    std::cout << *toto << std::endl;
-    //promoting toto :
-    for (int i=0; i < 145; i++)
-    {
-        (*toto)++;
-    }
-    std::cout << *toto << std::endl;
-    (*toto)++;
-    std::cout << *toto << std::endl;
-    // demoting toto : 
-    for (int i=0; i < 145; i++)
-    {
-        (*toto)--;
-    }
-    std::cout << *toto << std::endl;
-
-    //cloning toto
-
-    Bureaucrat toto2(*toto);
-
-    std::cout << toto2 << std::endl;
-    
-    Bureaucrat gontran("Gontran", 22);
-    std::cout << gontran << std::endl; 
+    std::cout << *toto ;
+    toto->signForm(pres);
+    std::cout << pres ;
+    line;
     
     
-    delete toto;
+    toto->signForm(party);
+    std::cout << party ;  
+    line;
+    president->signForm(party);
+    std::cout << party ;
+    president->signForm(party);
+    std::cout << party ;
+    
     return 0;    
 }

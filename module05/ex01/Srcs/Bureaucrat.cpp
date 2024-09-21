@@ -6,11 +6,12 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 22:50:16 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/09/20 23:38:19 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/21 10:24:00 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/Bureaucrat.hpp"
+#include "../Includes/Form.hpp" 
 
 Bureaucrat::Bureaucrat(): name("Unknown"), grade(150)
 {
@@ -136,12 +137,23 @@ void Bureaucrat::demote(){
 
 void Bureaucrat::signForm(Form &form)
 {
-    std::cout << this->name << "signed " << form.getName() << std::endl;
+    if (form.getStatus()){
+        std::cout << this->name << " couldn’t sign " << form.getName() << " because it was already signed" << std::endl;
+        return;
+    }
+    
+    if (!form.getStatus())
+        form.beSigned(*this);
+
+    if (form.getStatus())
+        std::cout << this->name << " signed " << form.getName() << std::endl;
+    else
+        std::cout << this->name << " couldn’t sign " << form.getName() << " because his grade is to low" << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &cout, Bureaucrat const &dusty)
 {
-    return cout << dusty.getName() << ", bureaucrat grade " <<  dusty.getGrade();
+    return cout << dusty.getName() << ", bureaucrat grade " <<  dusty.getGrade() << std::endl;
 }
 
 

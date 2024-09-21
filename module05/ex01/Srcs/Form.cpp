@@ -6,11 +6,12 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 12:43:12 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/09/20 23:43:45 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/21 10:19:54 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/Form.hpp"
+#include "../Includes/Bureaucrat.hpp"
 
 Form::Form()
 {    
@@ -30,8 +31,7 @@ Form::Form(Form const &cl): _name(cl._name)
 }
 
 Form::~Form()
-{
-   
+{   
 }
 
 Form &Form::operator=(Form const &cl)
@@ -46,12 +46,6 @@ void Form::sign(void)
 {
     this->isSigned = true;
 }
-
-bool Form::getStatus(void)
-{
-    return this->isSigned;
-}
-
 
 void Form::setExecGrade(int grade)
 {
@@ -117,35 +111,34 @@ const char * Form::GradeTooLowException::what() const throw()
     return ("Grade is too low");
 }
 
-std::string Form::getName(void)
+std::string Form::getName(void) const
 {
     return this->_name;
 }
 
-bool Form::getStatus(void)
+bool Form::getStatus(void) const
 {
     return this->isSigned;
 }
 
-int Form::getExecGrade()
+int Form::getExecGrade() const
 {
     return this->execGrade;
 }
 
 
-int Form::getSignGrade()
+int Form::getSignGrade() const
 {
-    return this->execGrade;
+    return this->signGrade;
 }
 
-void Form::beSigned(Bureaucrat const & z)
+void Form::beSigned(Bureaucrat & z)
 {
     try
     {
         if (z.getGrade() <= this->getSignGrade())
         {
             this->isSigned = true;
-            z.signForm(*this);
         }
         else
         {
@@ -160,11 +153,11 @@ void Form::beSigned(Bureaucrat const & z)
     
 }
 
-std::ostream &operator<<(std::ostream &cout, Form const &form)
+std::ostream &operator<<(std::ostream &cout, Form const &f)
 {
-    return cout << form.getName() << "Form "
-    << (form.getStatus() == true ? "is signed" : "is not signed")
-    << " reguired grade to Sign : " << form.getSignGrade() << std::endl
-    << " required grade to Execute : " << form.getExecGrade()
+    return cout << f.getName() << " Form "
+    << (f.getStatus() == true ? "is signed" : "is not signed") << std::endl
+    << "reguired grade to Sign : " << f.getSignGrade() << std::endl
+    << "required grade to Execute : " << f.getExecGrade()
     << std::endl;
 }

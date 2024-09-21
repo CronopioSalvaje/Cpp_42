@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/19 22:48:55 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/09/20 23:37:35 by calbor-p         ###   ########.fr       */
+/*   Created: 2024/09/21 09:14:44 by calbor-p          #+#    #+#             */
+/*   Updated: 2024/09/21 09:34:15 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 
 #include <iostream>
 #include <string>
-#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
