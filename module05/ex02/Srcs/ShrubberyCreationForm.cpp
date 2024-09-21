@@ -1,32 +1,30 @@
-#include "../Includes/Shrubberycreationform.hpp"
+#include "../Includes/ShrubberyCreationForm.hpp"
 #include "../Includes/Bureaucrat.hpp"
 #include  <fstream>
 
-Shrubberycreationform::Shrubberycreationform(): _name("Shrubbery Creation Form")
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm::AForm("Shrubbery Creation Form")
 {
     this->setExecGrade(137);
     this->setSignGrade(145);
     this->setTarget("undefined");
 }
 
-Shrubberycreationform::Shrubberycreationform(std::string target): _name("Shrubbery Creation Form")
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm::AForm("Shrubbery Creation Form", 145, 137)
 {
-    this->setExecGrade(137);
-    this->setSignGrade(145);
     this->setTarget(target);
 }
 
-Shrubberycreationform::Shrubberycreationform(Shrubberycreationform const &cl): AForm::AForm("Shrubbery Creation Form", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &cl): AForm::AForm("Shrubbery Creation Form", 145, 137)
 {    
     this->setTarget(cl.getTarget());
 }
 
-Shrubberycreationform::~Shrubberycreationform()
+ShrubberyCreationForm::~ShrubberyCreationForm()
 {
    
 }
 
-void Shrubberycreationform::action()
+void ShrubberyCreationForm::action(void) const
 {
     std::ofstream out((this->getTarget() + "_shrubbery").c_str());
     std::ifstream in("Includes/trees/1");
@@ -40,7 +38,7 @@ void Shrubberycreationform::action()
 
 }
 
-void Shrubberycreationform::operator=(Shrubberycreationform const &cl)
+void ShrubberyCreationForm::operator=(ShrubberyCreationForm const &cl)
 {
     this->setExecGrade(137);
     this->setSignGrade(145);

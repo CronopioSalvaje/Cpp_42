@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/21 10:40:17 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/09/21 12:00:35 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/21 16:24:29 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 AForm::AForm()
 {    
+}
+
+AForm::AForm(std::string name): _name(name), isSigned(false), execGrade(150), signGrade(150)
+{
+    
 }
 
 AForm::AForm(std::string name, int signGrade, int execGrade): _name(name), isSigned(false)
@@ -153,13 +158,15 @@ void AForm::beSigned(Bureaucrat & z)
     
 }
 
-void AForm::action()
-{
-}
 
 
 void AForm::execute(Bureaucrat const & executor) const
 {
+    if (!this->isSigned)
+    {
+        std::cout << this->getName() << " is not signed !!" << std::endl; 
+        return ;
+    }
     try
     {
         if (executor.getGrade() <= this->getExecGrade() && this->isSigned)

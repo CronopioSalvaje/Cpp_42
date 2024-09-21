@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 22:50:16 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/09/21 10:41:22 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/21 16:29:31 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -148,7 +148,7 @@ void Bureaucrat::signForm(AForm &form)
     if (form.getStatus())
         std::cout << this->name << " signed " << form.getName() << std::endl;
     else
-        std::cout << this->name << " couldn’t sign " << form.getName() << " because his grade is to low" << std::endl;
+        std::cout << this->name << " couldn’t sign " << form.getName() << " because his grade is too low" << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &cout, Bureaucrat const &dusty)
