@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 08:16:26 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/09/20 17:47:01 by ls               ###   ########.fr       */
+/*   Updated: 2024/09/21 21:54:42 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,8 +164,6 @@ int formatClassName(char *className)
 			return -1;
 		if (i == 0)
 			className[i] = toupper(className[i]);
-		else
-			className[i] = tolower(className[i]);
 		i++;
 	}
 	return (0);
