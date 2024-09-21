@@ -11,7 +11,7 @@ Intern::Intern()
 
 int Intern::getFormIndex(std::string name)
 {
-    std::string Forms[] = {"PresidentialPardonForm","RobotomyPardonFom", "ShrubberyCreationForm"};
+    std::string Forms[] = {"Presidential Pardon","Robotomy Pardon", "Shrubbery Creation"};
     size_t size = sizeof(Forms) / sizeof(Forms[0]);
     for (size_t i = 0; i < size; i++)
     {
@@ -21,13 +21,21 @@ int Intern::getFormIndex(std::string name)
     return (-1);
 }
 
+void Intern::msg(std::string name)
+{
+    std::cout << "Intern create " << name << std::endl;
+}
+
 AForm *Intern::makeForm(std::string name, std::string target)
 {
-    PresidentialPardonForm *form = new PresidentialPardonForm(target);
-    (void)name;
-    (void)target;
-    return (form);
-
+    switch (getFormIndex(name))
+    {
+        case 0: msg (name); return new PresidentialPardonForm(target); break;
+        case 1: msg (name); return new RobotomyRequestForm(target); break;
+        case 2: msg (name); return new ShrubberyCreationForm(target); break;    
+        default: std::cout << "Invalid Form name" << std::endl; return (NULL); break;
+    }
+    return (NULL);
 }
 
 Intern::Intern(Intern const &cl)

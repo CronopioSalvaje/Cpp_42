@@ -7,10 +7,11 @@ class AForm;
 class Intern
 {
     private:
+        int getFormIndex(std::string name);
     public:
         Intern(void);
         Intern(Intern const &cl);
-        int getFormIndex(std::string name);
+        void msg(std::string name);
         AForm *makeForm(std::string name, std::string target);
         ~Intern();
         void operator=(Intern const &cl);

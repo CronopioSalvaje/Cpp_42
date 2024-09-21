@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 23:28:56 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/09/21 17:29:46 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/21 21:31:06 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,18 @@
 #include "../Includes/ShrubberyCreationForm.hpp"
 #include "../Includes/RobotomyRequestForm.hpp"
 #include "../Includes/PresidentialPardonForm.hpp"
+#include "../Includes/Intern.hpp"
 
 #define line std::cout << std::endl;
+
+void isValidForm(AForm *form)
+{
+    if (form)
+        std::cout << "valid form" << std::endl;
+    else
+        std::cout << "(Null)" << std::endl;
+}
+
 
 int main()
 {
@@ -38,6 +48,15 @@ int main()
     PresidentialPardonForm pardon("Christophe");
     president->signForm(pardon);
     pardon.execute(*president);
+
+    Intern macron;
+
+    AForm *test = macron.makeForm("test", "Chris");
+    test = macron.makeForm("Presidential Pardon", "Chris");
+    plouc->signForm(*test);
+    test->beSigned(*plouc);
+    
+
     
     
 
