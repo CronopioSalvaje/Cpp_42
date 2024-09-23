@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRCS = Srcs/main.cpp Srcs/ScalarConverter.cpp
+SRCS = Srcs/main.cpp Srcs/ScalarConverter.cpp Srcs/utils.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
