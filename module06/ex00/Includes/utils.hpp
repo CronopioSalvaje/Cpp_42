@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 11:15:52 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/09/22 11:19:03 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/23 08:00:52 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 #include <iostream>
 #include <string>
+#include <cctype>
 
 std::string getCharFromInt(int nb);
+int checkType(std::string lit);
 
 
 #endif

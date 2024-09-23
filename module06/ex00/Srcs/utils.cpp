@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 11:14:59 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/09/22 11:33:10 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/23 08:09:33 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,26 @@ std::string getCharFromInt(int nb)
     }
     else 
         return "Non Displayable";
+}
+// 0 nan
+// 1 char
+// 2 int
+// 3 float
+// 4 double
+int checkType(std::string lit)
+{
+    bool hasChar;
+    bool hasPoint;
+    bool hasDigits;
+    int countDigits;
+    for (char c:lit)
+    {
+        if (!hasDigits)
+        hasDigits = isdigit(c) > 0 ? true : false;
+        if (!hasPoint)
+            hasPoint = c == '.' ? true : false;
+        if (!hasChar)
+            hasChar = isalnum(c) > 0 ? true : false;
+        countDigits++;
+    }
 }
