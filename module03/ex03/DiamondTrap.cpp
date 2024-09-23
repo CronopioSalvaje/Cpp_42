@@ -6,18 +6,18 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:34:54 by ls                #+#    #+#             */
-/*   Updated: 2024/09/19 12:29:38 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/23 12:16:21 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
 #include "ClapTrap.hpp"
 
-DiamondTrap::DiamondTrap()
+DiamondTrap::DiamondTrap():ClapTrap(), ScavTrap(), FragTrap()
 {
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ScavTrap(name), FragTrap(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
 {
     this->_name = name;
     this->ClapTrap::_name = name + "_clap_name";
@@ -39,12 +39,13 @@ void DiamondTrap::attack(const std::string& target)
 
 DiamondTrap::~DiamondTrap(void)
 {
-    std::cout << "DiamondTrap " << _name << " is destroyed" << std::endl;
+    std::cout << "DiamondTrap " << this->_name << " is destroyed" << std::endl;
 }
 
 DiamondTrap::DiamondTrap(DiamondTrap const &cl): ClapTrap(cl.ClapTrap::_name), ScavTrap(cl._name), FragTrap(cl._name)
 {
     *this = cl;
+    std::cout << "DiamondTrap constructor called for " << this->_name << std::endl;
 }
 void DiamondTrap::operator=(DiamondTrap const &cl)
 {

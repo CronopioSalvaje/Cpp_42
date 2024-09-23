@@ -6,13 +6,12 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:47:30 by ls                #+#    #+#             */
-/*   Updated: 2024/09/19 11:52:38 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/23 11:56:43 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCAVTRAP_HPP
 #define SCAVTRAP_HPP
-
 
 #include "ClapTrap.hpp"
 
@@ -26,10 +25,8 @@ class ScavTrap : virtual public ClapTrap
         ScavTrap(ScavTrap const &cl);
         void operator=(ScavTrap const &cl);
         void attack(const std::string& target);
-        void toString(void);
         void guardGate();
-        ~ScavTrap();
+        virtual ~ScavTrap();
 };
-
 
 #endif

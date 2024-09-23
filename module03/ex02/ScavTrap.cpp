@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 11:49:01 by ls                #+#    #+#             */
-/*   Updated: 2024/09/19 11:21:04 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/23 11:45:33 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ScavTrap::ScavTrap(std::string name):ClapTrap(name)
     this->_name = name;
     this->_hitPoints = 100;
     this->_energyPoints = 50;
-    this->_attackDamage = 10;
+    this->_attackDamage = 20;
     std::cout << "ScavTrap constructor called for " << this->_name << std::endl;
 }
 

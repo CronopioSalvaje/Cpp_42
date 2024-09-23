@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 09:58:18 by ls                #+#    #+#             */
-/*   Updated: 2024/09/19 11:50:31 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/23 11:56:59 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class ClapTrap
     public:
           ClapTrap(std::string name);
         ClapTrap(ClapTrap const &cl);
-        ~ClapTrap();
+        virtual ~ClapTrap();
         void operator=(ClapTrap const &cl);
         void attack(const std::string& target);
         void takeDamage(unsigned int amount);

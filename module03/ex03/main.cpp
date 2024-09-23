@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 08:16:26 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/09/19 12:27:55 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/23 12:11:08 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ int main( void )
    std::cout << "Creation : "; line;
    std::cout << "-----------"; line;
    DiamondTrap maceo("Maceo");   
+   line;
    DiamondTrap maceo2(maceo);
+   line;
    DiamondTrap maceo3 = maceo;
    line;
    std::cout << "DiamondTrap tests ____________" << std::endl << std::endl;

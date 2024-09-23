@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 11:14:59 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/09/23 08:09:33 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/23 11:07:40 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,30 @@ std::string getCharFromInt(int nb)
 // 4 double
 int checkType(std::string lit)
 {
-    bool hasChar;
-    bool hasPoint;
-    bool hasDigits;
-    int countDigits;
-    for (char c:lit)
+    char c;
+    bool hasChar = false;
+    bool hasPoint = false;
+    bool hasDigits = false;
+    //bool onlydigits = true;
+    int countChars = 0;
+    for (int i = 0; lit.c_str()[i]; i++)
     {
+        c = lit.c_str()[i];
         if (!hasDigits)
         hasDigits = isdigit(c) > 0 ? true : false;
         if (!hasPoint)
             hasPoint = c == '.' ? true : false;
         if (!hasChar)
-            hasChar = isalnum(c) > 0 ? true : false;
-        countDigits++;
+            hasChar = isprint(c) > 0 ? true : false;
+        countChars++;
     }
+    if (hasChar && countChars == 1)
+        return (1);
+    if (!hasChar && !hasPoint)
+        return (2);
+    if (countChars > 1 && hasChar)
+        return (0);
+    if (hasPoint && !hasChar)
+        return (4);
+    return 0;
 }

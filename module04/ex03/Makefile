@@ -1,4 +1,4 @@
-CC = g++
+CC = c++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 SRCS = Srcs/AMateria.cpp Srcs/Character.cpp Srcs/Cure.cpp Srcs/Ice.cpp Srcs/ICharacter.cpp Srcs/IMateriaSource.cpp Srcs/main.cpp Srcs/MateriaSource.cpp

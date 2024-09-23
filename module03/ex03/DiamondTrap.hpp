@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 16:34:58 by ls                #+#    #+#             */
-/*   Updated: 2024/09/19 12:09:21 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/23 11:57:12 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ class DiamondTrap : virtual public ScavTrap, virtual public FragTrap
         void operator=(DiamondTrap const &cl);
         void attack(const std::string& target);
         void whoAmI(void);
-        ~DiamondTrap(); 
+        virtual ~DiamondTrap(); 
 };
