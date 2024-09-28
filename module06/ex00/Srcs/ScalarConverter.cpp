@@ -3,6 +3,7 @@
 #include <iomanip>  // Pour std::setprecision
 #include <climits>
 #include <cmath>
+#include <cfloat>
 
 ScalarConverter::ScalarConverter()
 {    
@@ -10,7 +11,7 @@ ScalarConverter::ScalarConverter()
 
 void checklimits(std::string lit)
 {
-    
+    (void) lit;
 }
 
 void ScalarConverter::convert(std::string lit)
@@ -18,6 +19,9 @@ void ScalarConverter::convert(std::string lit)
     float f;
     int type;
 
+    std::cout << "int max : " << INT_MAX << " - int min : " << INT_MIN << std::endl;
+    std::cout << "float max : " << FLT_MAX << " - float min : " << FLT_MIN  << std::endl;
+    std::cout << "double max : " << DBL_MAX << " - double min : " << DBL_MIN << std::endl;
     f = std::atof(lit.c_str());
     type = checkType(lit);
     std::cout << "type : " << type << std::endl;

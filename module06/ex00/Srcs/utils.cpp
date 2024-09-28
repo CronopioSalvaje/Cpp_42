@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 11:14:59 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/09/23 11:07:40 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/09/26 21:47:48 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,25 +37,29 @@ int checkType(std::string lit)
     bool hasChar = false;
     bool hasPoint = false;
     bool hasDigits = false;
-    //bool onlydigits = true;
+    bool onlydigits = true;
     int countChars = 0;
     for (int i = 0; lit.c_str()[i]; i++)
     {
         c = lit.c_str()[i];
         if (!hasDigits)
-        hasDigits = isdigit(c) > 0 ? true : false;
+            hasDigits = isdigit(c) > 0 ? true : false;
+        if (onlydigits)
+            onlydigits = isdigit(c) > 0 ? true : false;
         if (!hasPoint)
             hasPoint = c == '.' ? true : false;
         if (!hasChar)
-            hasChar = isprint(c) > 0 ? true : false;
+            hasChar = (isprint(c) > 0) ? true : false;
         countChars++;
     }
     if (hasChar && countChars == 1)
         return (1);
-    if (!hasChar && !hasPoint)
+    if (onlydigits)
         return (2);
     if (countChars > 1 && hasChar)
         return (0);
+    if (hasDigits && hasPoint)
+        return (3);
     if (hasPoint && !hasChar)
         return (4);
     return 0;
