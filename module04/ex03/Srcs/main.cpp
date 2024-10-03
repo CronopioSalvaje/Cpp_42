@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 19:30:38 by ls                #+#    #+#             */
-/*   Updated: 2024/10/03 14:43:04 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/10/03 14:59:39 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,16 @@ void extraTests()
     AMateria *tmp;
     std::cout << GREEN << "Affecting Materias to Johnny" << DEFAULT_COLOR << std::endl;    
     tmp = src->createMateria("ice");  
+      std::cout << "test : " << tmp << " - Type : " << tmp->getType()<< std::endl;
     Johnny->equip(tmp);
     tmp = src->createMateria("ice");  
+      std::cout << "test : " << tmp << " - Type : " << tmp->getType()<< std::endl;
     Johnny->equip(tmp);
     tmp = src->createMateria("cure");  
+      std::cout << "test : " << tmp << " - Type : " << tmp->getType()<< std::endl;
     Johnny->equip(tmp);
     tmp = src->createMateria("cure");  
+      std::cout << "test : " << tmp << " - Type : " << tmp->getType()<< std::endl;
     Johnny->equip(tmp);
     Johnny->equip(tmp);
     
@@ -155,15 +159,15 @@ void extraTests()
   std::cout << GREEN << "Refill Chris's materia and create gronk clone Cricri" << DEFAULT_COLOR << std::endl;  
   tmp = src2.createMateria("ice");
   Chris.equip(tmp);
-  std::cout << "test : " << &tmp << " - Type : " << tmp->getType()<< std::endl;
+  std::cout << "test : " << tmp << " - Type : " << tmp->getType()<< std::endl;
   tmp = src2.createMateria("cure");
   Chris.equip(tmp);
-  std::cout << "test : " << &tmp << " - Type : " << tmp->getType()<< std::endl;
+  std::cout << "test : " << tmp << " - Type : " << tmp->getType()<< std::endl;
   tmp = src2.createMateria("ice");
   Chris.equip(tmp);
-  std::cout << "test : " << &tmp << " - Type : " << tmp->getType()<< std::endl;
+  std::cout << "test : " << tmp << " - Type : " << tmp->getType()<< std::endl;
   tmp = src2.createMateria("cure");
-  std::cout << "test : " << &tmp << " - Type : " << tmp->getType()<< std::endl;
+  std::cout << "test : " << tmp << " - Type : " << tmp->getType()<< std::endl;
   Chris.equip(tmp);
 
   gronk = Chris;
