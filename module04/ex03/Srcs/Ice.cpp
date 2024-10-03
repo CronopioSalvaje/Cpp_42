@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 19:30:24 by ls                #+#    #+#             */
-/*   Updated: 2024/08/16 18:01:44 by ls               ###   ########.fr       */
+/*   Updated: 2024/10/03 14:39:04 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Ice &Ice::operator=(Ice const ice)
 
 Ice *Ice::clone() const
 {
-    return new Ice(this->type);
+    return (new Ice(this->type));
 }
 
 void Ice::use(ICharacter& target)

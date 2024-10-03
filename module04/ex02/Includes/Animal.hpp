@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/07 22:33:43 by ls                #+#    #+#             */
-/*   Updated: 2024/08/10 08:48:45 by ls               ###   ########.fr       */
+/*   Created: 2024/10/03 14:03:47 by calbor-p          #+#    #+#             */
+/*   Updated: 2024/10/03 14:03:50 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ class Animal
     public:
         int id;
         Animal();
-        Animal(std::string const &type);        
+        Animal(std::string const &type);
+        Animal(Animal const &cl);
+        void operator=(Animal const &cl);  
         virtual ~Animal(void);
         std::string getType(void) const;
         virtual void makeSound(void) const = 0;

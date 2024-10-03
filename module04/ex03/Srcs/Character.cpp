@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 19:30:12 by ls                #+#    #+#             */
-/*   Updated: 2024/09/19 22:38:55 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/10/03 14:44:16 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,16 @@ std::string const & Character::getName() const
 }
 void Character::equip(AMateria* m)
 {
-    if (this->equiped < 4)
+    if (this->equiped < MAX_ITEMS)
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < MAX_ITEMS; i++)
+        {
+            if (&this->inventary[i] == &m)
+            {
+                return ;
+            }
+        }
+        for (int i = 0; i < MAX_ITEMS; i++)
         {
             if (this->inventary[i] == NULL)
             {
@@ -83,7 +90,7 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-    if (idx < 4)
+    if (idx < MAX_ITEMS && this->inventary[idx] != NULL)
     {
         this->addToOld(this->inventary[idx]);
         this->inventary[idx] = NULL;

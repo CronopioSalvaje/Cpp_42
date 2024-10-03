@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cure.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 19:30:19 by ls                #+#    #+#             */
-/*   Updated: 2024/08/16 18:01:40 by ls               ###   ########.fr       */
+/*   Updated: 2024/10/03 14:38:28 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Cure::Cure(std::string type): AMateria(type)
 
 Cure *Cure::clone() const
 {
-    return new Cure(this->type);
+    return (new Cure(this->type));
 }
 
 Cure::Cure(Cure const & cure): AMateria(cure.type)

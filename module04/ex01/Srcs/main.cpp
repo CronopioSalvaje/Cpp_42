@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 08:16:26 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/08/10 08:39:50 by ls               ###   ########.fr       */
+/*   Updated: 2024/10/03 13:59:51 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ int set_max(int ac, char **av)
    {
       try{
          max = std::atoi(av[1]);
-         if (max < 1)
-            throw std::out_of_range("Wrong value or out of range - Value set to 5");
+         if (max < 1 || max > 100)
+            throw std::out_of_range("Wrong value or out of range (1 - 100) - Value set to 5");
       }   
       catch(std::out_of_range &e){
          std::cout << e.what() << std::endl;
@@ -103,6 +103,7 @@ void separator(void)
 int main(int ac, char **av)
 {
    int max = set_max(ac, av);
+   std::cout << "max : " << max << std::endl;
    std::string dogsIdeas[] = {"Waf !!", "want a bone", "Tired...", "I'm thirsty", "want to play with a ball", "play with me !!", "i'm bored", "this is my bone... get out of here", "i'm happy", "do you know were snoopy lives ?", "When does my master arrive ?", "starving...", "if i catch the pussy i'll eat it !!", "human are so strange", "you are so funny", "let's poo somewhere !", "i'm gonna catch this chicken and bury it", "why is this guy in my house ?"};
    std::string catsIdeas[] = {"Miaou !!", "want milk", "This is my sofa", "i'm sure there's a mouse somewhere", "someday i'll catch this fish", "you're my slave", "give me a hug", "i'll be back", "thoses curtains are too new... lets destroy them", "i hate you", "leave me alone", "MIAOOOOOOUUUU FFFFFFFFF", "ahhhhhh", "this fish is delicious", "mouse mouse mouse mouse", "zzzzzzzzzzz", "you're so funny", "play with me"};
    

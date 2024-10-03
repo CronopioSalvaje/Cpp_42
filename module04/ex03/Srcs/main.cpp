@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 19:30:38 by ls                #+#    #+#             */
-/*   Updated: 2024/09/19 22:34:03 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/10/03 14:43:04 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void extraTests()
     Johnny->equip(tmp);
     tmp = src->createMateria("cure");  
     Johnny->equip(tmp);
+    Johnny->equip(tmp);
+    
     /**
      * 
      * these ones should be unemployed... Character can only store 4 Materias
@@ -153,12 +155,17 @@ void extraTests()
   std::cout << GREEN << "Refill Chris's materia and create gronk clone Cricri" << DEFAULT_COLOR << std::endl;  
   tmp = src2.createMateria("ice");
   Chris.equip(tmp);
+  std::cout << "test : " << &tmp << " - Type : " << tmp->getType()<< std::endl;
   tmp = src2.createMateria("cure");
   Chris.equip(tmp);
+  std::cout << "test : " << &tmp << " - Type : " << tmp->getType()<< std::endl;
   tmp = src2.createMateria("ice");
   Chris.equip(tmp);
+  std::cout << "test : " << &tmp << " - Type : " << tmp->getType()<< std::endl;
   tmp = src2.createMateria("cure");
+  std::cout << "test : " << &tmp << " - Type : " << tmp->getType()<< std::endl;
   Chris.equip(tmp);
+
   gronk = Chris;
 
   std::cout << GREEN << "chris use his materias" << DEFAULT_COLOR << std::endl;  

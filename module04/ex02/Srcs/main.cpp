@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 08:16:26 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/08/10 08:39:50 by ls               ###   ########.fr       */
+/*   Updated: 2024/10/03 14:00:31 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ int set_max(int ac, char **av)
    {
       try{
          max = std::atoi(av[1]);
-         if (max < 1)
-            throw std::out_of_range("Wrong value or out of range - Value set to 5");
+         if (max < 1 || max > 100)
+            throw std::out_of_range("Wrong value or out of range (1 - 100) - Value set to 5");
       }   
       catch(std::out_of_range &e){
          std::cout << e.what() << std::endl;

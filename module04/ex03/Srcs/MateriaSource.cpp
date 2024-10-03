@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 20:32:24 by ls                #+#    #+#             */
-/*   Updated: 2024/09/19 22:10:16 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/10/03 14:36:05 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void MateriaSource::learnMateria(AMateria* m)
 
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < MAX_ITEMS; i++)
     {
         if (this->materia[i] != NULL)
         {

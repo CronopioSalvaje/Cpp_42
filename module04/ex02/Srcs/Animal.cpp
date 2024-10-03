@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/07 22:33:57 by ls                #+#    #+#             */
-/*   Updated: 2024/08/10 08:49:14 by ls               ###   ########.fr       */
+/*   Created: 2024/10/03 14:02:06 by calbor-p          #+#    #+#             */
+/*   Updated: 2024/10/03 14:02:10 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,16 @@ Animal::Animal(std::string const &type): _type(type), id(count)
 Animal::~Animal(void)
 {
     std::cout << "Animal destructor called" << std::endl;
+}
+
+Animal::Animal(Animal const &cl)
+{
+    *this = cl;
+}
+
+void Animal::operator=(Animal const &cl)
+{
+    this->_type = cl._type;
 }
 
 std::string Animal::getType(void) const

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 22:33:57 by ls                #+#    #+#             */
-/*   Updated: 2024/08/10 08:47:57 by ls               ###   ########.fr       */
+/*   Updated: 2024/10/03 13:53:17 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,17 @@ Animal::Animal(): id(count)
 Animal::Animal(std::string const &type): _type(type), id(count)
 {
     std::cout << "Animal constructor called" << std::endl;
+}
+
+
+Animal::Animal(Animal const &cl)
+{
+    *this = cl;
+}
+
+void Animal::operator=(Animal const &cl)
+{
+    this->_type = cl._type;
 }
 
 Animal::~Animal(void)

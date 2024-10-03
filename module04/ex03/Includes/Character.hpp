@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 19:24:05 by ls                #+#    #+#             */
-/*   Updated: 2024/09/19 22:38:55 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/10/03 14:04:29 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ class Character : public ICharacter
     public:
         Character();
         Character(std::string name);
-        Character(Character const & c); // a la fin quand je saurais tout ce qu'il faut copier
-        Character &operator=(Character const & c); // a la fin quand je saurais tout ce qu'il faut copier
+        Character(Character const & c);
+        Character &operator=(Character const & c);
         std::string const & getName() const;
         void equip(AMateria* m);
         void unequip(int idx);

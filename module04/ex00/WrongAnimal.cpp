@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 22:33:57 by ls                #+#    #+#             */
-/*   Updated: 2024/08/08 08:54:32 by ls               ###   ########.fr       */
+/*   Updated: 2024/10/03 13:47:42 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,16 @@ WrongAnimal::WrongAnimal(std::string const &type): _type(type)
 WrongAnimal::~WrongAnimal(void)
 {
     std::cout << "WrongAnimal destructor called" << std::endl;
+}
+
+WrongAnimal::WrongAnimal(WrongAnimal const &cl)
+{
+    *this = cl;
+}
+
+void WrongAnimal::operator=(WrongAnimal const &cl)
+{
+    this->_type = cl._type;
 }
 void WrongAnimal::makeSound(void) const
 {
