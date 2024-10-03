@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 22:30:38 by ls                #+#    #+#             */
-/*   Updated: 2024/08/08 08:44:24 by ls               ###   ########.fr       */
+/*   Updated: 2024/10/03 15:09:52 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "Animal.hpp"
 #include <iostream>
 
-class Dog : virtual public Animal
+class Dog : public Animal
 {
     public:
         Dog();

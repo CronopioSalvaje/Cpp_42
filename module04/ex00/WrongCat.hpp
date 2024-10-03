@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ls <ls@student.42.fr>                      +#+  +:+       +#+        */
+/*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/08 08:13:28 by ls                #+#    #+#             */
-/*   Updated: 2024/08/08 08:49:15 by ls               ###   ########.fr       */
+/*   Updated: 2024/10/03 15:10:09 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "WrongAnimal.hpp"
 #include <iostream>
 
-class WrongCat : virtual public WrongAnimal
+class WrongCat : public WrongAnimal
 {
     public:
         WrongCat();
