@@ -1,36 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Array.tpp                                          :+:      :+:    :+:   */
+/*   OutOfRangeException.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 19:13:32 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/10/27 21:18:14 by calbor-p         ###   ########.fr       */
+/*   Created: 2024/10/27 21:00:54 by calbor-p          #+#    #+#             */
+/*   Updated: 2024/10/27 21:15:23 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Array.hpp"
+#ifndef OUTOFRANGEEXCEPTION_HPP
+#define OUTOFRANGEEXCEPTION_HPP
 
-template<typename T>
-Array<T>::Array()
-{
-}
+#include <string>
+#include <exception>
 
-template<typename T>
-Array<T>::Array(unsigned int length): length(length)
+class OutOfRangeException : public std::exception
 {
-    elements = new T[length];
-}
+    private : 
+        std::string message;
+    public :    
+        explicit OutOfRangeException(std::string message);
+        const char *what() const throw();
+        ~OutOfRangeException() throw();
+};
 
-template<typename T>
-Array<T>::~Array()
-{
-    delete[] elements;
-}
 
-template<typename T>
-unsigned int Array<T>::size()
-{
-    return length;
-}
+#endif

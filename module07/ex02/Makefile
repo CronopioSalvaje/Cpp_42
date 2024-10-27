@@ -1,7 +1,7 @@
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRCS = Srcs/main.cpp Srcs/Array.cpp 
+SRCS = Srcs/main.cpp Srcs/Array.cpp Srcs/OutOfRangeException.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

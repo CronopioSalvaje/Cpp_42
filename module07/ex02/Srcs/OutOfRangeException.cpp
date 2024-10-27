@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Array.tpp                                          :+:      :+:    :+:   */
+/*   OutOfRangeException.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/27 19:13:32 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/10/27 21:18:14 by calbor-p         ###   ########.fr       */
+/*   Created: 2024/10/27 21:00:26 by calbor-p          #+#    #+#             */
+/*   Updated: 2024/10/27 21:10:38 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Array.hpp"
+#include "../Includes/OutOfRangeException.hpp"
 
-template<typename T>
-Array<T>::Array()
-{
+
+OutOfRangeException::OutOfRangeException(std::string message) : message(message)
+{    
 }
 
-template<typename T>
-Array<T>::Array(unsigned int length): length(length)
+const char *OutOfRangeException::what() const throw()
 {
-    elements = new T[length];
+    return message.c_str();
 }
 
-template<typename T>
-Array<T>::~Array()
-{
-    delete[] elements;
-}
-
-template<typename T>
-unsigned int Array<T>::size()
-{
-    return length;
-}
+OutOfRangeException::~OutOfRangeException() throw() {};
