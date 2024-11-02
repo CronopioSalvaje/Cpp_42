@@ -1,9 +1,80 @@
 #include "../Includes/ScalarConverter.hpp"
+#include "../Includes/colors.hpp"
 #include <iomanip>  // Pour std::setprecision
 #include <climits>
 #include <cmath>
 #include <cfloat>
-#include <sstream>
+
+
+bool checkChar(char c)
+{
+    if (isprint(c) == 0)
+        return false;
+    return true;
+}
+
+bool onlyDigits(std::string lit)
+{
+    for (size_t i = 0; i < lit.size(); ++i)
+    {
+        if (lit[i] < 48 || lit[i] > 57)
+            return false;
+    }
+    return true;
+}
+
+bool isDigit(char c)
+{
+    return (!(c < 48 || c > 57));
+}
+
+bool isAFloat(const std::string &lit)
+{
+    int count = 0;
+
+    size_t i = 0;
+    if (lit[i] == '-' || lit[i] == '+')
+        i++; 
+
+    if (!isdigit(lit[i]) && lit[i] != '.')
+        return false;
+
+    for (; i < lit.size(); ++i)
+    {
+        if (lit[i] == '.')
+            count++;
+        if (lit[i] == '.' && count > 1)
+            return false;
+        else if (!isdigit(lit[i]) && lit[i] != '.')
+            return false;
+    }
+    return (count == 1);
+}
+
+int stringToInt(std::string lit)
+{
+    std::stringstream stream;
+    int i;
+    stream << lit;
+    stream >> i;
+    return i;
+}
+
+double stringToDouble(std::string lit)
+{
+    std::stringstream stream;
+    double d;
+    stream << lit;
+    stream >> d;
+    return d;
+}
+
+bool isDisplayable(int c)
+{
+    if (c < 33 || c > 126)
+        return false;
+    return true;
+}
 
 ScalarConverter::ScalarConverter()
 {    
@@ -29,38 +100,19 @@ std::string ScalarConverter::getCharFromInt(int nb)
 // 2 int
 // 3 float
 // 4 double
+void ScalarConverter::debugState(bool state)
+{
+    if (state)
+        std::cout << "[  " << GREEN << "true" << RESET << "   ] : ";
+    else
+        std::cout << "[  " << RED << "false" << RESET << "  ] : ";
+}
+
+
 int ScalarConverter::checkType(std::string lit)
 {
-    char c;
-    bool hasChar = false;
-    bool hasPoint = false;
-    bool hasDigits = false;
-    bool onlydigits = true;
-    int countChars = 0;
-    for (int i = 0; lit.c_str()[i]; i++)
-    {
-        c = lit.c_str()[i];
-        if (!hasDigits)
-            hasDigits = isdigit(c) > 0 ? true : false;
-        if (onlydigits)
-            onlydigits = isdigit(c) > 0 ? true : false;
-        if (!hasPoint)
-            hasPoint = c == '.' ? true : false;
-        if (!hasChar)
-            hasChar = (isprint(c) > 0) ? true : false;
-        countChars++;
-    }
-    if (hasChar && countChars == 1)
-        return (1);
-    if (onlydigits)
-        return (2);
-    if (countChars > 1 && hasChar)
-        return (0);
-    if (hasDigits && hasPoint)
-        return (3);
-    if (hasPoint && !hasChar)
-        return (4);
-    return 0;
+  (void) lit;
+  return 0;
 }
 
 void ScalarConverter::printLimits()
@@ -71,48 +123,26 @@ void ScalarConverter::printLimits()
 }
 void ScalarConverter::checklimits(std::string lit)
 {
-   
+   (void) lit;
 }
 
-void ScalarConverter::displayResults(std::string ch,std::string in,std::string fl,std::string db)
+
+
+void ScalarConverter::convertChar(std::string lit)
 {
-    std::cout << "char: " << ch << std::endl;
-    std::cout << "int: " << in << std::endl;
-    std::cout << "float: " << fl << "f" << std::endl;
-    std::cout << "double: "<< db << std::endl;
+    std::cout << "char: ";
+    if (lit == "nan")
+        std::cout << "impossible" << std::endl;
+    else if(isDisplayable(stringToInt(lit)))
+        std::cout << static_cast<char>(stringToInt(lit)) << std::endl;
+    else
+        std::cout << "non displayable" << std::endl;
 }
 
 void ScalarConverter::convert(std::string lit)
 {
-    float f;
-    double d;
-    int type;
-    std::stringstream stream;
-    stream << lit;  
-    stream >> f;
-    stream << lit;
-    stream >> d;
-    type = checkType(lit);
-   // std::cout << "type : " << type << std::endl;
-    if (type == 0)
-    {
-        displayResults("impossible", "impossible", "nan", "nan");
-        return ;
-    }
-    else if (type == 1)
-    {
-        std::cout << "char: " << lit << std::endl;
-        std::cout << "int: " << static_cast<int>(lit.c_str()[0]) << std::endl;
-        std::cout << std::fixed << std::setprecision(1) << "float: " << static_cast<float>(f) << "f" << std::endl;
-        std::cout << "double: "<< static_cast<double>(d) << std::endl;
-    }
-    else
-    {
-        std::cout << "char: " << getCharFromInt(static_cast<int>(f)) << std::endl;
-        std::cout << "int: " << static_cast<int>(f) << std::endl;
-        std::cout << std::fixed << std::setprecision(1) << "float: " << f << "f" << std::endl;
-        std::cout << "double: "<< f << std::endl;
-    }
+    ScalarConverter::convertChar(lit);
+   
 }
 
 ScalarConverter::~ScalarConverter()

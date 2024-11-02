@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <sstream>
 
 class ScalarConverter
 {
@@ -10,9 +11,10 @@ class ScalarConverter
         ScalarConverter();
         static std::string getCharFromInt(int nb);
         static int checkType(std::string lit);
-        static void ScalarConverter::printLimits();
-        static void ScalarConverter::checklimits(std::string lit);
-        static void displayResults(std::string ch,std::string in,std::string fl,std::string db);
+        static void printLimits();
+        static void checklimits(std::string lit);
+        static void debugState(bool state);
+        static void convertChar(std::string lit);
         ~ScalarConverter();
     public:
         static void convert(std::string lit);
