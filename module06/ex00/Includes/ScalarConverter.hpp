@@ -13,8 +13,10 @@ class ScalarConverter
         static int checkType(std::string lit);
         static void printLimits();
         static void checklimits(std::string lit);
+        static bool isAChar(std::string lit);
         static void debugState(bool state);
         static void convertChar(std::string lit);
+        static void convertInt(std::string lit);
         ~ScalarConverter();
     public:
         static void convert(std::string lit);

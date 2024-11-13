@@ -54,9 +54,11 @@ bool isAFloat(const std::string &lit)
 int stringToInt(std::string lit)
 {
     std::stringstream stream;
-    int i;
+    long int i;
     stream << lit;
     stream >> i;
+    if (i > INT_MAX || i < INT_MIN)
+
     return i;
 }
 
@@ -126,6 +128,16 @@ void ScalarConverter::checklimits(std::string lit)
    (void) lit;
 }
 
+bool ScalarConverter::isAChar(std::string lit)
+{
+    if (lit.size() != 1)
+       return false;
+    char c = lit[0];
+    if (isDisplayable(c))
+       return true;
+    return false;
+
+}
 
 
 void ScalarConverter::convertChar(std::string lit)
@@ -134,14 +146,32 @@ void ScalarConverter::convertChar(std::string lit)
     if (lit == "nan")
         std::cout << "impossible" << std::endl;
     else if(isDisplayable(stringToInt(lit)))
-        std::cout << static_cast<char>(stringToInt(lit)) << std::endl;
+        std::cout << "'" << static_cast<unsigned char>(stringToInt(lit)) << "'" << std::endl;
+    else if(isAChar(lit))
+        std::cout << "'" << lit << "'" << std::endl;
     else
         std::cout << "non displayable" << std::endl;
 }
 
+
+void ScalarConverter::convertInt(std::string lit)
+{
+    std::cout << "int: ";
+    if (lit == "nan")
+        std::cout << "impossible" << std::endl;
+    else if(isAChar(lit))
+        std::cout << static_cast<int>(lit[0]) << std::endl;
+    else
+        std::cout << stringToInt(lit) << std::endl;
+
+   /// regarder strtod -> avec errno et exceptions
+}
+
+
 void ScalarConverter::convert(std::string lit)
 {
     ScalarConverter::convertChar(lit);
+    ScalarConverter::convertInt(lit);
    
 }
 
