@@ -2,6 +2,7 @@
 #include "../Includes/colors.hpp"
 #include <iomanip>  // Pour std::setprecision
 #include <climits>
+#include <limits>
 #include <cmath>
 #include <cfloat>
 
@@ -58,7 +59,7 @@ int stringToInt(std::string lit)
     stream << lit;
     stream >> i;
     if (i > INT_MAX || i < INT_MIN)
-
+        std::cout << "" << std::endl;
     return i;
 }
 
@@ -84,8 +85,7 @@ ScalarConverter::ScalarConverter()
 
 
 std::string ScalarConverter::getCharFromInt(int nb)
-{
-    
+{    
     char ch[1];
     if (isprint(nb))
     {
@@ -144,26 +144,47 @@ void ScalarConverter::convertChar(std::string lit)
 {
     std::cout << "char: ";
     if (lit == "nan")
-        std::cout << "impossible" << std::endl;
+        std::cout << "impossible";
     else if(isDisplayable(stringToInt(lit)))
-        std::cout << "'" << static_cast<unsigned char>(stringToInt(lit)) << "'" << std::endl;
+        std::cout << "'" << static_cast<unsigned char>(stringToInt(lit)) << "'";
     else if(isAChar(lit))
-        std::cout << "'" << lit << "'" << std::endl;
+        std::cout << "'" << lit << "'";
     else
-        std::cout << "non displayable" << std::endl;
+        std::cout << "non displayable";
+    std::cout << std::endl;
 }
 
+bool ScalarConverter::canConvertToInt(std::string lit, int *result)
+{
+    std::stringstream stream(lit);
+    stream >> *result;
+    if (stream.fail())
+        return false;
+    std::string remain;
+    stream >> remain;
+    if (!remain.empty())
+        return false;    
+
+    if (*result == std::numeric_limits<int>::infinity() ||
+        *result == -std::numeric_limits<int>::infinity()) {
+        return false;
+    }
+    
+    return true;
+}
 
 void ScalarConverter::convertInt(std::string lit)
 {
+    int result = 0;
     std::cout << "int: ";
     if (lit == "nan")
         std::cout << "impossible" << std::endl;
     else if(isAChar(lit))
         std::cout << static_cast<int>(lit[0]) << std::endl;
+    else if (canConvertToInt(lit, &result))
+        std::cout << result << std::endl;
     else
-        std::cout << stringToInt(lit) << std::endl;
-
+        std::cout << "overflow" << std::endl;
    /// regarder strtod -> avec errno et exceptions
 }
 

@@ -17,6 +17,7 @@ class ScalarConverter
         static void debugState(bool state);
         static void convertChar(std::string lit);
         static void convertInt(std::string lit);
+        static bool canConvertToInt(std::string lit, int *result);
         ~ScalarConverter();
     public:
         static void convert(std::string lit);
