@@ -95,7 +95,7 @@ std::string ScalarConverter::getCharFromInt(int nb)
         return "'"+chs+"'";
     }
     else 
-        return "Non Displayable";
+        return "non displayable";
 }
 // 0 nan
 // 1 char
@@ -142,15 +142,14 @@ bool ScalarConverter::isAChar(std::string lit)
 
 void ScalarConverter::convertChar(std::string lit)
 {
-    std::cout << "char: ";
     if (lit == "nan")
-        std::cout << "impossible";
+        std::cout << "char: impossible";
     else if(isDisplayable(stringToInt(lit)))
-        std::cout << "'" << static_cast<unsigned char>(stringToInt(lit)) << "'";
+        std::cout << "char: '" << static_cast<unsigned char>(stringToInt(lit)) << "'";
     else if(isAChar(lit))
-        std::cout << "'" << lit << "'";
+        std::cout << "char: '" << lit << "'";
     else
-        std::cout << "non displayable";
+        std::cout << "char: non displayable";
     std::cout << std::endl;
 }
 
@@ -168,23 +167,42 @@ bool ScalarConverter::canConvertToInt(std::string lit, int *result)
     if (*result == std::numeric_limits<int>::infinity() ||
         *result == -std::numeric_limits<int>::infinity()) {
         return false;
-    }
-    
+    }    
+    return true;
+}
+
+bool ScalarConverter::canConvertToDouble(std::string lit, double *result)
+{
+    std::stringstream stream(lit);
+    stream >> *result;
+    if (stream.fail())
+        return false;
+    std::string remain;
+    stream >> remain;
+    if (!remain.empty())
+        return false;    
+
+    if (*result == std::numeric_limits<double>::infinity() ||
+        *result == -std::numeric_limits<double>::infinity()) {
+        return false;
+    }    
     return true;
 }
 
 void ScalarConverter::convertInt(std::string lit)
 {
     int result = 0;
+    double dble_result = 0.0;
     std::cout << "int: ";
     if (lit == "nan")
-        std::cout << "impossible" << std::endl;
+        std::cout << "impossible";
     else if(isAChar(lit))
-        std::cout << static_cast<int>(lit[0]) << std::endl;
+        std::cout << static_cast<int>(lit[0]);
     else if (canConvertToInt(lit, &result))
-        std::cout << result << std::endl;
+        std::cout << result;
     else
-        std::cout << "overflow" << std::endl;
+        std::cout << "overflow";
+    std::cout << std::endl;
    /// regarder strtod -> avec errno et exceptions
 }
 
