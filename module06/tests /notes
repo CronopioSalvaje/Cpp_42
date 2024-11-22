@@ -1,0 +1,20 @@
+Oui, c'est un comportement normal et attendu de la conversion entre types. C'est dû aux limites fondamentales de la représentation des nombres en virgule flottante (format IEEE 754).
+Voici pourquoi :
+
+Un float (32 bits) a :
+
+1 bit pour le signe
+8 bits pour l'exposant
+23 bits pour la mantisse
+
+
+Un int (32 bits) peut représenter des nombres entiers exactement jusqu'à 2³¹-1 (2147483647)
+Quand on convertit un nombre proche de INT_MAX en float :
+
+Il n'y a pas assez de bits de précision dans la mantisse
+Le float arrondit au nombre représentable le plus proche
+D'où l'arrondi à 2147483648.0
+
+
+
+Ce n'est pas une erreur, mais une limitation inhérente à la représentation en virgule flottante. C'est pourquoi il faut être prudent avec les conversions entre types numériques quand on travaille avec des grands nombres.

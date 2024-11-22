@@ -3,20 +3,25 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <limits>
 #include <sstream>
+#include "colors.hpp"
+
 
 class ScalarConverter
 {
     private:
         ScalarConverter();
         static std::string getCharFromInt(int nb);
-        static int checkType(std::string lit);
-        static void printLimits();
-        static void checklimits(std::string lit);
         static bool isAChar(std::string lit);
-        static void debugState(bool state);
+        static std::string getIntFromDouble(double d_converted);
+        static std::string getFloatFromDouble(double d_converted);
+        static bool hasDecimalPart(float d_converted);
         static void convertChar(std::string lit);
-        static void convertInt(std::string lit);
+
+        static bool handleNan(std::string lit);
+        static bool handleInf(std::string lit);
+        static void print_err(int mask);
         static bool canConvertToDouble(std::string lit, double *result);
         static bool canConvertToInt(std::string lit, int *result);
         ~ScalarConverter();
