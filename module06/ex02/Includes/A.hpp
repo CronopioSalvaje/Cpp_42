@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   A.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/10 19:30:38 by ls                #+#    #+#             */
-/*   Updated: 2024/12/05 20:13:37 by calbor-p         ###   ########.fr       */
+/*   Created: 2024/12/05 21:28:24 by calbor-p          #+#    #+#             */
+/*   Updated: 2024/12/05 21:28:27 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Includes/Data.hpp"
-#include "../Includes/Serializer.hpp"
+#pragma once
 
-int main()
+#include "Base.hpp"
+#include <iostream>
+
+class A : public Base
 {
-    Data *d1 = new Data();
-    Data *d1bis;
+    private:
+        std::string _name;
+    public:
+        A(void);
+        ~A();
+};
 
-    Serializer::serialize(d1);
-    
-    uintptr_t ptr = Serializer::serialize(d1);
-    d1bis = Serializer::deserialize(ptr);
 
-    std::cout << ptr << "     "   << d1bis->getId() << std::endl;
-    
-}

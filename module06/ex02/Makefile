@@ -1,13 +1,13 @@
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRCS = Srcs/main.cpp Srcs/Serializer.cpp Srcs/Data.cpp
+SRCS = Srcs/main.cpp Srcs/Base.cpp Srcs/A.cpp Srcs/B.cpp Srcs/C.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 INC = Includes/
 
-NAME = Serializer
+NAME = Base
 
 all : $(NAME)
 
