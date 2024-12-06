@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 21:10:51 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/12/05 21:12:50 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/12/06 17:24:39 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@
 class Base{
     public:
     Base();
-    virtual ~Base(); 
+    virtual void identify();
+    virtual ~Base();
 };

@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 21:13:38 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/12/05 21:29:28 by calbor-p         ###   ########.fr       */
+/*   Updated: 2024/12/06 17:25:47 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,4 +15,10 @@
 Base::Base()
 {
 }
+
+void Base::identify()
+{
+    std::cout << "BASE" << std::endl;
+}
+
 Base::~Base(){}
