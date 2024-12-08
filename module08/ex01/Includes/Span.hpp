@@ -9,6 +9,7 @@ class Span
     private:
         unsigned int size;
         T* data;
+        static unsigned int elements; 
     public:
         Span(unsigned int size):size(size)
         {
