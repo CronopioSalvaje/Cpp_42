@@ -2,50 +2,42 @@
 #define SPAN_HPP
 
 #include <iostream>
+#include <stdexcept>
+#include <vector>
+#include <climits>
+#include <algorithm>
+#include "InsufficientDataException.hpp"
 
-template<typename T>
 class Span
 {
     private:
         unsigned int size;
-        T* data;
-        static unsigned int elements; 
+        unsigned int elements; 
+        std::vector<int> data;
+        size_t getShortest();
+        size_t getLongest();
+        void add(int value);
+        bool debug;
     public:
-        Span(unsigned int size):size(size)
+        size_t getSize();
+        void setDebug(bool debugMode);
+        void debugSpan(std::vector<int> d);
+        void debugSpan();
+        Span(unsigned int size);
+        Span(Span const &sp);
+        int &operator[](size_t index);
+        template <typename IT>
+        void addRange(IT begin, IT end)
         {
-            data = new T[size];
+            IT it;
+            for(it = begin; it !=end; ++it)
+                addNumber(*it);
         }
-
-        Span(Span const &sp)
-        {
-            *this = sp;
-        }
-
-        T &operator[](size_t index)
-        {
-            return data[index];
-        }
-
-        Span &operator=(Span const &sp)
-        {
-            if (this != &sp)
-            {
-                size = sp.size;
-                if (data)
-                    delete[] data;
-                data = new T[size];
-                for (size_t i = 0; i < size; ++i)
-                    data[i] = sp.data[i];
-            }
-            return *this;
-        }
-        void addNumber(unsigned int value);
+        Span &operator=(Span const &sp);
+        void addNumber(int value);
         size_t shortestSpan();
         size_t longestSpan();
-        ~Span()
-        {
-            delete [] data;
-        };
+        ~Span();
 
 };
 

@@ -1,7 +1,7 @@
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-SRCS = Srcs/main.cpp Srcs/easyfind.cpp 
+SRCS = Srcs/main.cpp Srcs/Span.cpp Srcs/InsufficientDataException.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
