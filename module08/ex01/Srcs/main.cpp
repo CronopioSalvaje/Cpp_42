@@ -142,10 +142,10 @@ int main(int ac, char **av)
     }
     mandatoryTest();
     quickTest();
-    failSpanTest(15,-100,100);
+    failSpanTest(15,- 100, 100);
     failSpanTestInsuficientData(false);
     failSpanTestInsuficientData(true);
-    fillSpanTest(2,0, 30);
+    fillSpanTest(2, 0, 30);
     fillSpanTest(10000,INT_MIN, INT_MAX);
     fillSpanTest(100000,-123123,123123);
     std::cerr << RESET;
