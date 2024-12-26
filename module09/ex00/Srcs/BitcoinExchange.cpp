@@ -82,10 +82,11 @@ bool checkValue(std::string value, double *val, int limit)
     std::stringstream ss;
     ss << value;
     ss >> *val;
-
     if (ss.fail())
+    {
         throw GenericException("Error: Bad Input");
         return false;
+    }
     if (*val < 0)
     {
         throw GenericException("Error: not a positive number");
@@ -128,9 +129,13 @@ void BitcoinExchange::parseline(std::string &line, std::map<t_date, double> &map
     if (pos !=std::string::npos)
         value = trim(line.substr(pos + 1, std::string::npos));
     try{
-        checkValue(value, &val, ctx);
+        if (checkValue(value, &val, ctx))
+        {
+            d.index = lnumb;
+            //std::cout << d.index << " " << map.insert(std::make_pair(d, val)).second << std::endl;
+            map.insert(std::make_pair(d, val));
+        }
         lnumb++;
-        map.insert(std::make_pair(d, val));
     }
     catch(GenericException &e)
     {
@@ -146,7 +151,7 @@ void BitcoinExchange::printDBase(std::map<t_date, double>DB)
     std::map<t_date, double>::iterator it;
     for (it = DB.begin(); it != DB.end(); ++it)
     {
-        std::cout << GREEN << it->first.d_str << "   " << BLUE << it->second << RESET << std::endl;
+        std::cout << GREEN << it->first.index << " / " << it->first.d_str << "   " << BLUE << it->second << RESET << std::endl;
     }
 
 }
@@ -181,8 +186,9 @@ void BitcoinExchange::parseDatabase()
 BitcoinExchange::BitcoinExchange(std::string const &path)
 {
     parseDatabase();
-    //printDBase(m_DB);
+    printDBase(m_DB);
     parseUserfile(path);
+    printDBase(m_btcExchange);
 }
 
 BitcoinExchange::~BitcoinExchange(){}

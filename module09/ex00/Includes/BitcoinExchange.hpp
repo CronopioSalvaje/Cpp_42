@@ -15,6 +15,7 @@
 #define USERFILE 1000
 
 typedef struct s_date {
+    size_t index;
     int year;
     int month;
     int day;
@@ -24,7 +25,20 @@ typedef struct s_date {
             return year < other.year;
         if (month != other.month)
             return month < other.month;
-        return day < other.day;
+        if (day != other.day)
+            return day < other.day;
+        return index < other.index; 
+    }
+    bool operator==(const s_date& other) const {
+        return year == other.year 
+           && month == other.month 
+           && day == other.day;
+    }
+    bool operator>(const s_date& other) const {
+        return other < *this;
+    }
+    bool operator<=(const s_date& other) const {
+        return !(other < *this);
     }
 } t_date;
 
