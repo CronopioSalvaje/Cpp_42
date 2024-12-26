@@ -81,37 +81,40 @@ bool checkValue(std::string value, double *val, int limit)
 {
     std::stringstream ss;
     ss << value;
-    double d;
-    ss >> d;
+    ss >> *val;
+
     if (ss.fail())
         throw GenericException("Error: Bad Input");
         return false;
-    if (d < 0)
+    if (*val < 0)
     {
         throw GenericException("Error: not a positive number");
         return false;
     }
-    if (limit == USERFILE && d > 1000)
+    if (limit == USERFILE && *val > 1000)
     {
         throw GenericException("Error: number too large");
         return false;
     }
-    *val = d;
     return true;        
 }
 
-void BitcoinExchange::parseline(std::string &line, std::map<t_date, double> map, int ctx)
+void BitcoinExchange::parseline(std::string &line, std::map<t_date, double> &map, int ctx)
 {    
     size_t pos;
-    double val;
+    double val = 0;
     switch (ctx)
     {
-    case 0: pos = line.find(","); break;
-    case 1000: pos = line.find("|"); break;
-    default:
-        break;
+        case 0: pos = line.find(","); break;
+        case 1000: pos = line.find("|"); break;
+        default: break;
     }     
     static int lnumb = 1;
+    if (line == "RESET")
+    {
+        lnumb = 1;
+        return;
+    }
     std::string date = trim(line.substr(0, pos));
     t_date d;
     d.d_str = date;
@@ -121,18 +124,33 @@ void BitcoinExchange::parseline(std::string &line, std::map<t_date, double> map,
         lnumb++;
         return;
     }
-    lnumb++;
     std::string value = "";
     if (pos !=std::string::npos)
         value = trim(line.substr(pos + 1, std::string::npos));
-    if(!checkValue(value, &val, ctx))
+    try{
+        checkValue(value, &val, ctx);
+        lnumb++;
+        map.insert(std::make_pair(d, val));
+    }
+    catch(GenericException &e)
     {
-        std::cerr << "Error : bad format at line " << lnumb << std::endl;
+        std::cerr << e.what() << std::endl;
         lnumb++;
         return;
     }
-    map.insert(std::make_pair(d, val));
+
 }
+
+void BitcoinExchange::printDBase(std::map<t_date, double>DB)
+{
+    std::map<t_date, double>::iterator it;
+    for (it = DB.begin(); it != DB.end(); ++it)
+    {
+        std::cout << GREEN << it->first.d_str << "   " << BLUE << it->second << RESET << std::endl;
+    }
+
+}
+
 
 void BitcoinExchange::parseDatabase()
 {
@@ -148,6 +166,8 @@ void BitcoinExchange::parseDatabase()
 
  void BitcoinExchange::parseUserfile(std::string path)
  {
+    std::string trigger = "RESET";
+    parseline(trigger, m_btcExchange, USERFILE);
     std::ifstream file(path.c_str());
     if (!file || !file.is_open() || file.fail() || file.bad())
         throw FileErrorException("File Error");
@@ -161,7 +181,8 @@ void BitcoinExchange::parseDatabase()
 BitcoinExchange::BitcoinExchange(std::string const &path)
 {
     parseDatabase();
-    parseUserfile(path);  
+    //printDBase(m_DB);
+    parseUserfile(path);
 }
 
 BitcoinExchange::~BitcoinExchange(){}

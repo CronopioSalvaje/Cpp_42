@@ -12,4 +12,5 @@ ne pas oublier le déréférencement du it (*it) avant d'utiliser les pointeurs 
 
 ne pas oublier de return dans les boucles for lorsqu'il faut quitter la boucle
 
-delete dans les destructeurs dans Warlock ex1 et dans SpellBook et TargetGenerator ex02
+delete dans les destructeurs dans Warlock ex01 et dans SpellBook et TargetGenerator ex02
+

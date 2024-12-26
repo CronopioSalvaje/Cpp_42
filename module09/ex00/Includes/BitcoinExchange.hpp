@@ -7,6 +7,7 @@
 #include <sstream>
 #include "cstdlib"
 #include <map>
+
 #define NO_LIMIT 0
 #define LIMIT 1000
 #define DB_PATH "Includes/data.csv"
@@ -34,9 +35,10 @@ class BitcoinExchange
         std::map<t_date, double> m_DB;
         BitcoinExchange(BitcoinExchange const &cl);
         BitcoinExchange &operator=(BitcoinExchange const &cl);
-        void parseline(std::string &line, std::map<t_date, double> map, int ctx);
+        void parseline(std::string &line, std::map<t_date, double> &map, int ctx);
         void parseDatabase();
         void parseUserfile(std::string path);
+        void printDBase(std::map<t_date, double>DB);
     public:
         BitcoinExchange(std::string const &path);
         ~BitcoinExchange();
