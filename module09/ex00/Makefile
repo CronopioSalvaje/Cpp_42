@@ -3,7 +3,7 @@ CC = c++
 
 CFLAGS = -g -std=c++98
 
-SRCS = Srcs/main.cpp Srcs/BitcoinExchange.cpp Srcs/FileErrorException.cpp
+SRCS = Srcs/main.cpp Srcs/BitcoinExchange.cpp Srcs/FileErrorException.cpp Srcs/GenericException.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
