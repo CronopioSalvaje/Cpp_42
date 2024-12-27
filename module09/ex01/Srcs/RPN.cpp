@@ -71,9 +71,40 @@ bool RPN::areValidChars(std::string str)
     return true;
 }
 
+
+void RPN::exec(char c)
+{
+    int a = stack.top();
+    stack.pop();
+    int b =  stack.top();
+    stack.pop();
+    int result = 0;
+    switch (c)
+    {
+        case '+': result = a + b; break;
+        case '-': result = a - b; break;
+        case '/': result = a / b; break;
+        case '*': result = a * b; break;
+    
+    default:
+        break;
+    }
+    stack.push(result);
+
+}
+
 void RPN::executeExpression()
 {
-
+    size_t i = 0;
+    while (i < m_exp.size())
+    {
+        if (isdigit(m_exp[i]) == 1)
+            stack.push(getNumberFromChar(m_exp[i]));
+        else if (m_exp[i] != ' ')
+            exec(m_exp[i]);
+        i++;
+    }
+    std::cout << stack.top() << std::endl;        
 }
 
 RPN::RPN(std::string const &exp): m_exp(trim(exp))

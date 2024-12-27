@@ -13,6 +13,7 @@ class RPN{
         std::string m_exp;
         RPN(RPN const &cl);
         RPN &operator=(RPN const &cl);
+        void exec(char c);
     public:
         RPN(std::string const &exp);
         void checkExpression();

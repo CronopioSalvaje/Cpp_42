@@ -10,8 +10,16 @@ std::string trim(std::string str)
     return (str.substr(first, last - first + 1));
 }
 
-
 void toogle(bool *val)
 {
     *val = !(*val);
+}
+
+int getNumberFromChar(char c)
+{
+    std::stringstream ss;
+    int nb = 0;
+    ss << c;
+    ss >> nb;
+    return nb;
 }

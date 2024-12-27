@@ -18,7 +18,7 @@ int main(int ac, char **av)
 {
     if (ac != 2)
     {
-        std::cerr << RED << "Invalid Expression : should have at least 2 numbers and one operator separated with a space" << std::endl;
+        std::cerr << RED << "Invalid Expression : Args expected" << std::endl;
         return (1);
     }
     std::string expr(av[1]);
