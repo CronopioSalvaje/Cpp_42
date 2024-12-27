@@ -8,7 +8,10 @@
 class ValueExistException : public std::exception
 {
     private:
-        char *msg = "Value already exist. All values must be different";
+        std::string m_msg;
+        mutable std::string m_error;
     public:
+        ValueExistException(std::string msg);
         const char* what() const throw();
+        ~ValueExistException() throw();
 };

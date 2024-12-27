@@ -34,6 +34,7 @@ class PmergeMe
         std::vector<unsigned int> sortPendants(std::vector<unsigned int> lst, 
             std::vector<pair> pairs, std::vector<unsigned int> alone);
         void insertByBinaryLimitedResearch(pair p, std::vector<unsigned int> &lst);
+        std::vector<size_t> getJacobshtalSuite(size_t size);
         void insertByBinaryResearch(std::vector<unsigned int> &lst, std::vector<unsigned int> &alone);
         template<typename T>
         bool isSortedList(const T &lst)

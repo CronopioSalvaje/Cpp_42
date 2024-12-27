@@ -8,7 +8,10 @@
 class WrongValueException : public std::exception
 {
     private:
-        char *msg = "Wrong Value, unsigned int expected";
+        std::string m_msg;
+        mutable std::string m_error;
     public:
+        WrongValueException(std::string const &msg);
         const char* what() const throw();
+        virtual ~WrongValueException()throw();
 };

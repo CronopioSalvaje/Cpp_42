@@ -56,7 +56,7 @@ unsigned int parseStr(char *str)
 
     if (oss.fail() || !isOnlyDigits(str) || !isUnsignedInt(ui_val))
     {
-        throw WrongValueException();
+        throw WrongValueException("unsigned int expected");
     }
     return ui_val;
 }
@@ -68,7 +68,7 @@ bool isValInList(unsigned int val, std::vector<unsigned int> &lst)
     for (; it != lst.end(); ++it)
     {
         if (*it == val)
-            throw ValueExistException();        
+            throw ValueExistException("All values must be different");        
     }
     return (false);
 }

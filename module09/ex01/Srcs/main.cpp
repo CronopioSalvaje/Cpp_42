@@ -13,7 +13,6 @@
 #include "../Includes/colors.hpp"
 #include "../Includes/RPN.hpp"
 
-
 int main(int ac, char **av)
 {
     if (ac != 2)

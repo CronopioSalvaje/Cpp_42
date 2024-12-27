@@ -52,6 +52,26 @@ std::vector<pair> PmergeMe::sliceList(std::vector<unsigned int> &lst)
     return pairs;
 }
 
+std::vector<size_t> PmergeMe::getJacobshtalSuite(size_t size)
+{
+    std::vector<size_t> jacobsthal;
+    jacobsthal.push_back(0);
+    jacobsthal.push_back(1);
+    size_t i = 2;
+    size_t s = size;
+    while (s--)
+    {
+        size_t jnumb = jacobsthal[i-1] + 2 * jacobsthal[i - 2];
+        if (jnumb > size)
+            break;
+        std::cout << "- i:" << i << " - " << jnumb << std::endl;
+        jacobsthal.push_back(jnumb);
+        i++;
+    }
+    // add complement or find a way to manage it?
+    return jacobsthal;
+}
+
 void PmergeMe::insertByBinaryLimitedResearch(pair p, std::vector<unsigned int> &lst)
 {
     DEBUGGER(410)
@@ -89,6 +109,7 @@ void PmergeMe::insertByBinaryResearch(std::vector<unsigned int> &lst, std::vecto
 
 std::vector<unsigned int> PmergeMe::sortPendants(std::vector<unsigned int> lst, std::vector<pair> pairs, std::vector<unsigned int> alone)
 {
+    getJacobshtalSuite(pairs.size());
     std::vector<pair>::iterator p_it = pairs.begin();
     std::vector<pair>::iterator p_it2 = pairs.begin();
     p_it2++;
@@ -99,7 +120,6 @@ std::vector<unsigned int> PmergeMe::sortPendants(std::vector<unsigned int> lst, 
         if (p_it != pairs.end())
             p_it++;
     }
-
     DEBUGGER(4)
     if (pairs.size() > 1)
     {
@@ -127,6 +147,7 @@ std::vector<unsigned int> PmergeMe::sortList(std::vector<unsigned int> lst)
     // faire procedure si pair == 1 et 0;
     DEBUGGER("SIZE : ")
     DEBUGGER(pairs.size())
+    getJacobshtalSuite(pairs.size());
     DEBUGGER("END")
     std::vector<unsigned int> greaters, alone;
     std::vector<pair>::iterator it;
