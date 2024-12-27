@@ -1,7 +1,5 @@
 CC = c++
-#CFLAGS = -Wall -Wextra -Werror -g -std=c++98
-
-CFLAGS = -g -std=c++98
+CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
 SRCS = Srcs/main.cpp Srcs/BitcoinExchange.cpp Srcs/FileErrorException.cpp Srcs/GenericException.cpp
 

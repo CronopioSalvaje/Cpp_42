@@ -100,6 +100,24 @@ bool checkValue(std::string value, double *val, int limit)
     return true;        
 }
 
+double BitcoinExchange::getRate(std::pair<t_date, double> &pair)
+{
+    (void) pair;
+    std::map<t_date, double>::reverse_iterator it;
+    it = m_DB.rbegin();
+    for (; it != m_DB.rend(); ++it)
+    {  
+        if (pair.first >= it->first)        
+            break;
+    }
+    return it->second;
+}
+
+void BitcoinExchange::process(std::pair<t_date, double> pair)
+{
+    std::cout << pair.first.d_str << " => " << pair.second << " = " << pair.second * getRate(pair) << std::endl;
+}
+
 void BitcoinExchange::parseline(std::string &line, std::map<t_date, double> &map, int ctx)
 {    
     size_t pos;
@@ -132,8 +150,12 @@ void BitcoinExchange::parseline(std::string &line, std::map<t_date, double> &map
         if (checkValue(value, &val, ctx))
         {
             d.index = lnumb;
-            //std::cout << d.index << " " << map.insert(std::make_pair(d, val)).second << std::endl;
-            map.insert(std::make_pair(d, val));
+            std::pair<t_date, double> record;
+            record = std::make_pair(d, val);            
+            if (ctx == USERFILE)
+                process(record);
+            else
+                map.insert(record);
         }
         lnumb++;
     }
@@ -143,7 +165,6 @@ void BitcoinExchange::parseline(std::string &line, std::map<t_date, double> &map
         lnumb++;
         return;
     }
-
 }
 
 void BitcoinExchange::printDBase(std::map<t_date, double>DB)
@@ -171,8 +192,8 @@ void BitcoinExchange::parseDatabase()
 
  void BitcoinExchange::parseUserfile(std::string path)
  {
-    std::string trigger = "RESET";
-    parseline(trigger, m_btcExchange, USERFILE);
+    std::string line_count = "RESET";
+    parseline(line_count, m_btcExchange, USERFILE);
     std::ifstream file(path.c_str());
     if (!file || !file.is_open() || file.fail() || file.bad())
         throw FileErrorException("File Error");
@@ -188,7 +209,6 @@ BitcoinExchange::BitcoinExchange(std::string const &path)
     parseDatabase();
     printDBase(m_DB);
     parseUserfile(path);
-    printDBase(m_btcExchange);
 }
 
 BitcoinExchange::~BitcoinExchange(){}

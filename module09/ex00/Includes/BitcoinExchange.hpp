@@ -40,6 +40,9 @@ typedef struct s_date {
     bool operator<=(const s_date& other) const {
         return !(other < *this);
     }
+    bool operator>=(const s_date& other) const {
+        return (other < *this || other == *this);
+    }
 } t_date;
 
 class BitcoinExchange
@@ -53,6 +56,8 @@ class BitcoinExchange
         void parseDatabase();
         void parseUserfile(std::string path);
         void printDBase(std::map<t_date, double>DB);
+        double getRate(std::pair<t_date, double> &pair);
+        void process(std::pair<t_date, double> pair);
     public:
         BitcoinExchange(std::string const &path);
         ~BitcoinExchange();

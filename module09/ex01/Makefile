@@ -1,15 +1,13 @@
 CC = c++
-#CFLAGS = -Wall -Wextra -Werror -g -std=c++98
+CFLAGS = -Wall -Wextra -Werror -g -std=c++98
 
-CFLAGS = -g -std=c++98
-
-SRCS = Srcs/main.cpp Srcs/PmergeMe.cpp Srcs/WrongValueException.cpp Srcs/ValueExistException.cpp
+SRCS = Srcs/main.cpp Srcs/RPN.cpp Srcs/InvalidExpressionException.cpp Srcs/utils.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
 INC = Includes/
 
-NAME = PmergeMe
+NAME = RPN
 
 all : $(NAME)
 
