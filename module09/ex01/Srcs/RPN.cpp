@@ -40,7 +40,7 @@ void RPN::checkExpression()
     else if (m_exp.size() < 2)
         throw InvalidExpressionException("not enougth data");
     if (!areValidChars(m_exp))
-        throw InvalidExpressionException("Invalid Characters");
+        throw InvalidExpressionException("Invalid characters");
     if (!areSeparatedVals(m_exp))
         throw InvalidExpressionException("not separated elements");
 }
@@ -62,21 +62,17 @@ bool RPN::isValidChar(char c)
 
 bool RPN::areValidChars(std::string str)
 {
-    size_t i = 0;
-    while(str[i++])
-    {
-        if (!isValidChar(str[i]))
-            return false;
-    }
+    if (str.find_first_not_of(" 0123456789+-*/") != std::string::npos)
+        return false;
     return true;
 }
 
 
 void RPN::exec(char c)
 {
-    int a = stack.top();
+    int b = stack.top();
     stack.pop();
-    int b =  stack.top();
+    int a =  stack.top();
     stack.pop();
     int result = 0;
     switch (c)
@@ -101,10 +97,18 @@ void RPN::executeExpression()
         if (isdigit(m_exp[i]) == 1)
             stack.push(getNumberFromChar(m_exp[i]));
         else if (m_exp[i] != ' ')
-            exec(m_exp[i]);
+        {
+            if (stack.size() >= 2)
+                exec(m_exp[i]);
+            else 
+                throw InvalidExpressionException ("Missing number to complete operation");
+        }
         i++;
     }
-    std::cout << stack.top() << std::endl;        
+    if (stack.size() == 1)
+        std::cout << stack.top() << std::endl;        
+    else
+        throw InvalidExpressionException("Stack is not empty - operators missing to procede");
 }
 
 RPN::RPN(std::string const &exp): m_exp(trim(exp))
