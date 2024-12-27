@@ -79,7 +79,10 @@ void RPN::exec(char c)
     {
         case '+': result = a + b; break;
         case '-': result = a - b; break;
-        case '/': result = a / b; break;
+        case '/': if (b == 0) 
+                    throw InvalidExpressionException("impossible division by 0");
+                  result = a / b;
+                  break;
         case '*': result = a * b; break;
     
     default:
@@ -113,7 +116,6 @@ void RPN::executeExpression()
 
 RPN::RPN(std::string const &exp): m_exp(trim(exp))
 {
-    std::cout << YELLOW << m_exp << RESET << std::endl;
     try
     {
         checkExpression();
