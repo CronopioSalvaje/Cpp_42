@@ -149,7 +149,6 @@ std::vector<unsigned int> PmergeMe::sortPendants(std::vector<unsigned int> &lst,
 { 
     std::vector<size_t> jacobsthalSuite = getJacobsthalSuite(pairs.size());
     std::vector<size_t>::iterator it;
-    
     for (it = jacobsthalSuite.begin(); it != jacobsthalSuite.end(); ++it)
     {
         insertByBinaryLimitedResearch(pairs[*it - 1], lst);
@@ -173,10 +172,11 @@ std::list<unsigned int> PmergeMe::sortPendantsList(std::list<unsigned int> &lst,
 
 std::vector<unsigned int> PmergeMe::sortVector(std::vector<unsigned int> lst)
 {
+    static size_t loop = 1;
     std::vector<unsigned int> sorted;
     std::vector<unsigned int> greaters, alone;
     std::vector<pair> pairs = sliceList(lst);
-    if (lst.size() % 2 != 0)   
+    if (lst.size() == 1)
     {
         alone.push_back(lst.back());
         lst.pop_back();
@@ -191,9 +191,8 @@ std::vector<unsigned int> PmergeMe::sortVector(std::vector<unsigned int> lst)
         {
             sorted.push_back(pairs[0].first);
             sorted.push_back(pairs[0].second);
-        }    
+        }   
     }
-
     if (pairs.size() > 1) 
     {
         std::vector<pair>::reverse_iterator it;
@@ -203,7 +202,9 @@ std::vector<unsigned int> PmergeMe::sortVector(std::vector<unsigned int> lst)
         {
             sorted = sortVector(greaters);
         }
-        sorted = sortPendants(greaters, pairs);
+        else
+            sorted = greaters;
+        sorted = sortPendants(sorted, pairs);
     }    
     if (alone.size() > 0 )
         insertByBinaryResearch(sorted, alone);
@@ -233,7 +234,6 @@ std::list<unsigned int> PmergeMe::sortList(std::list<unsigned int> lst)
             sorted.push_back(it->second);
         }    
     }
-
     if (pairs.size() > 1) 
     {
         std::vector<pair>::reverse_iterator it;
@@ -243,8 +243,8 @@ std::list<unsigned int> PmergeMe::sortList(std::list<unsigned int> lst)
         {
             sorted = sortList(greaters);
         }
-        sorted = sortPendantsList(greaters, pairs);
-    }    
+        sorted = sortPendantsList(sorted, pairs);
+    }
     if (alone.size() > 0 )
         insertByBinaryResearchList(sorted, alone);
     return sorted;
@@ -255,18 +255,37 @@ void PmergeMe::sort(){
     printlist(m_vec, "std::vector before : ");
     clock_t start_vec = clock();
     m_vec = sortVector(m_vec);
-    clock_t stop_vec = clock();
-    double elapsedTime_us = (static_cast<double>(stop_vec - start_vec) / CLOCKS_PER_SEC * 1000000);
     printlist(m_vec, "std::vector after : ");
-    std::cout << "Time to process a range of " << m_vec.size() << " elements with std::vector<size_t> : " << elapsedTime_us << " us" << std::endl;
+    clock_t stop_vec = clock();
 
     clock_t start_lst = clock();
     printlist(m_lst, "std::list before : ");
     m_lst = sortList(m_lst);
     printlist(m_lst, "std::list after : ");
     clock_t stop_lst = clock();
-    elapsedTime_us = (static_cast<double>(stop_lst - start_lst) / CLOCKS_PER_SEC * 1000000);
-    std::cout << "Time to process a range of " << m_lst.size() << " elements with std::list<size_t> : " << elapsedTime_us << " us" << std::endl;
+    
+
+    double velapsedTime_us = (static_cast<double>(stop_vec - start_vec));
+    double velapsedTime_s = (static_cast<double>(stop_vec - start_vec)/CLOCKS_PER_SEC);
+    double lelapsedTime_us = (static_cast<double>(stop_lst - start_lst));
+    double lelapsedTime_s = (static_cast<double>(stop_lst - start_lst)/CLOCKS_PER_SEC);
+    std::string vCOLOR, lCOLOR;
+    if (velapsedTime_s > lelapsedTime_s)
+    {
+        vCOLOR = RED;
+        lCOLOR = BOLD_GREEN;        
+    }else if (velapsedTime_s == lelapsedTime_s)
+    {
+        vCOLOR = BOLD_BLUE;
+        lCOLOR = BOLD_BLUE; 
+    }else
+     {
+        vCOLOR = BOLD_GREEN;
+        lCOLOR = RED; 
+    }
+    
+    std::cout << "Time to process a range of " << BLUE << m_vec.size() << RESET << " elements with std::vector<size_t> : " << vCOLOR << velapsedTime_us << RESET <<" us - " <<  vCOLOR << velapsedTime_s << RESET << " s" << std::endl;
+    std::cout << "Time to process a range of " << BLUE << m_lst.size() << RESET << " elements with std::list<size_t> : " << lCOLOR << lelapsedTime_us << RESET " us - " << lCOLOR << lelapsedTime_s << RESET << " s" << std::endl;
 
 }
 

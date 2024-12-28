@@ -55,6 +55,15 @@ class PmergeMe
         void sort();
         void setList();
         void operator=(PmergeMe const &cl);
+        void debugSliced(std::vector<pair> const &v)
+        {
+            std::vector<pair>::const_iterator it = v.begin();
+            for (it;it != v.end(); ++it)
+            {
+                std::cout << BOLD_BLUE << "pair : ("<< it->first <<":"<<it->second<<")" << RESET << std::endl;
+            }
+
+        }
 
         template<typename T>
         void swap(T *a, T *b)
