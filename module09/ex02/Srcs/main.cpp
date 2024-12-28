@@ -109,7 +109,6 @@ int main(int ac, char **av)
         }
     }
     PmergeMe merge(data);
-    merge.printlist();
     merge.sort();
-    merge.printlist();
+        
 }

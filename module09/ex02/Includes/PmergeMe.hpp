@@ -4,6 +4,7 @@
 #include <iostream>
 #include "colors.hpp"
 #include <list>
+#include <algorithm>
 #include <vector>
 
 typedef enum mode{
@@ -31,10 +32,10 @@ class PmergeMe
         PmergeMe(PmergeMe const &cl);
         ~PmergeMe();
         std::vector<pair> sliceList(std::vector<unsigned int> &lst);
-        std::vector<unsigned int> sortPendants(std::vector<unsigned int> lst, 
-            std::vector<pair> pairs, std::vector<unsigned int> alone);
+        std::vector<unsigned int> sortPendants(std::vector<unsigned int> &lst, 
+            std::vector<pair> pairs);
         void insertByBinaryLimitedResearch(pair p, std::vector<unsigned int> &lst);
-        std::vector<size_t> getJacobshtalSuite(size_t size);
+        std::vector<size_t> getJacobsthalSuite(size_t size);
         void insertByBinaryResearch(std::vector<unsigned int> &lst, std::vector<unsigned int> &alone);
         template<typename T>
         bool isSortedList(const T &lst)
