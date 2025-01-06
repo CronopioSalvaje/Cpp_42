@@ -11,14 +11,29 @@
 /* ************************************************************************** */
 
 #include "../Includes/Bureaucrat.hpp"
+#include "../Includes/colors.hpp"
+
+
+void label(std::string title)
+{
+    std::cout << BOLD_BLUE << "=== "<< title << " ===" << RESET << std::endl;
+}
 
 int main()
 {
+    label("Creating bureaucrat gontran (22)");
+    Bureaucrat gontran("Gontran", 22);
+    std::cout << gontran << std::endl;     
+    label("Creating bureaucrat toto (155)");
+    label("Grade too low test");
     Bureaucrat *toto =  new Bureaucrat("Toto", 155);
-    std::cout << *toto << std::endl;
-    
+
+    std::cout << *toto << std::endl;    
     toto->demote();
     std::cout << *toto << std::endl;
+
+
+    label("Promoting tests");
     toto->promote();
     std::cout << *toto << std::endl;
         toto->promote();
@@ -27,15 +42,16 @@ int main()
     std::cout << *toto << std::endl;
         toto->promote();
     std::cout << *toto << std::endl;
-    //promoting toto :
+    label("Promoting tests with operator ++");
     for (int i=0; i < 145; i++)
     {
         (*toto)++;
     }
     std::cout << *toto << std::endl;
+    label("Grade too high test");
     (*toto)++;
     std::cout << *toto << std::endl;
-    // demoting toto : 
+    label("demoting tests with operator --");
     for (int i=0; i < 145; i++)
     {
         (*toto)--;
@@ -44,13 +60,10 @@ int main()
 
     //cloning toto
 
+   label("Clonning test");
     Bureaucrat toto2(*toto);
 
     std::cout << toto2 << std::endl;
-    
-    Bureaucrat gontran("Gontran", 22);
-    std::cout << gontran << std::endl; 
-    
     
     delete toto;
     return 0;    
