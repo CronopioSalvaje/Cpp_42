@@ -213,8 +213,7 @@ void ScalarConverter::convert(std::string lit)
             d_converted = static_cast<double>(i_converted);
             std::cout << "int: " << i_converted << std::endl;
             std::cout << "float: " << f_converted << "f" << std::endl;
-            std::cout << "double: " << d_converted << std::endl;
-            std::cout << "INNNNNNN" <<std::endl;
+            std::cout << "double: " << d_converted << std::endl;            
         }
         else
             ScalarConverter::print_err(INT_OVERFLOW | FLOAT_OVERFLOW | IMPOSSIBLE);

@@ -20,18 +20,6 @@ int main(int ac, char **av)
         return (1);
     }
 
-    int max = std::numeric_limits<int>::max();
-    int min = -std::numeric_limits<int>::max() - 1;
-    std::stringstream ss;
-    ss << max;
-    std::string intMax;
-    ss >> intMax;
-    ss.clear();
-    std::string intMin;
-    ss << min;
-    ss >> intMin;
-
-    (void) ac;
     if (av[1])
     {
         std::string toConvert(av[1]);
