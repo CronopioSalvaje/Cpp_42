@@ -2,7 +2,6 @@
 #include "../Includes/colors.hpp"
 #include <iomanip>  // Pour std::setprecision
 #include <climits>
-
 #include <cmath>
 #include <cfloat>
 
@@ -116,7 +115,7 @@ bool ScalarConverter::handleNan(std::string lit)
     {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
-        std::cout << "float: " << (lit == "nanf" ? "nanf" : "nan") << std::endl;
+        std::cout << "float: nanf" << std::endl;
         std::cout << "double: nan" << std::endl;
         return true;
     }
@@ -130,16 +129,23 @@ bool ScalarConverter::handleInf(std::string lit)
     {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
-        std::cout << "float: " << (lit == "-inff" ? "-inff" : "-inf") << std::endl;
+        std::cout << "float: -inff " << std::endl;
         std::cout << "double: -inf" << std::endl;
         return true;
     }
-
-    if (lit == "inf" || lit == "inff" || lit == "+inf" || lit == "+inff")
+    else if (lit == "inf" || lit == "inff" || lit == "+inf" || lit == "+inff")
     {
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
-        std::cout << "float: " << ((lit == "inff" || lit == "+inff" )? "+inff" : "+inf") << std::endl;
+        std::cout << "float: inff" << std::endl;
+        std::cout << "double: inf" << std::endl;
+        return true;
+    }
+    else if (lit == "+inf" || lit == "+inff")
+    {
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float: +inff" << std::endl;
         std::cout << "double: +inf" << std::endl;
         return true;
     }
@@ -150,29 +156,20 @@ std::string ScalarConverter::getIntFromDouble(double d_converted)
 {
     std::stringstream ss;
     std::string result_str;
-    if (d_converted > std::numeric_limits<int>::max() 
-        || d_converted < std::numeric_limits<int>::min())
-        ss << "impossible";
+    
+    if (d_converted > std::numeric_limits<int>::max() || d_converted < std::numeric_limits<int>::min())
+    {
+        result_str = "impossible";
+    }
     else
     {
         ss << static_cast<int>(d_converted);
-        ss >> result_str;
+        result_str = ss.str();
     }
-    return (result_str);    
+    return result_str;
 }
 
-bool ScalarConverter::hasDecimalPart(float d_converted)
-{
-     float intPart = static_cast<float>(static_cast<long long>(d_converted));
-        float fracPart = d_converted - intPart;
-        
-        // Utiliser une comparaison avec un epsilon
-        const float epsilon =  0.0001;
-        
-        if (fracPart < epsilon && fracPart > -epsilon) 
-            return false;
-    return true;
-}
+
 
 std::string ScalarConverter::getFloatFromDouble(double d_converted)
 {   
@@ -185,15 +182,11 @@ std::string ScalarConverter::getFloatFromDouble(double d_converted)
              (d_converted < 0 ? -d_converted : d_converted) < std::numeric_limits<float>::min()) {
         ss << "impossible";
     } else {
-        //long long f_converted = static_cast<float>(d_converted);
-        if (!hasDecimalPart(static_cast<float>(d_converted)))
+        if (d_converted == static_cast<float>(static_cast<int>(d_converted)))
             ss << std::fixed << std::setprecision(1) << static_cast<float>(d_converted) << "f";
         else
         {
-            ss.unsetf(std::ios::fixed);
-            ss.precision(6);
             ss << static_cast<float>(d_converted) << "f";
-
         }
     }
     ss >> result_str;
@@ -221,19 +214,17 @@ void ScalarConverter::convert(std::string lit)
             std::cout << "int: " << i_converted << std::endl;
             std::cout << "float: " << f_converted << "f" << std::endl;
             std::cout << "double: " << d_converted << std::endl;
+            std::cout << "INNNNNNN" <<std::endl;
         }
         else
             ScalarConverter::print_err(INT_OVERFLOW | FLOAT_OVERFLOW | IMPOSSIBLE);
         return;
     }
+
     std::cout << "int: " << getIntFromDouble(d_converted) << std::endl;
     std::cout << "float: " << getFloatFromDouble(d_converted) << std::endl;
     if (d_converted == static_cast<double>(static_cast<int>(d_converted)))
-    {
         std::cout << std::fixed << std::setprecision(1);
-        std::cout.unsetf(std::ios::fixed);
-        std::cout.precision(6);
-    }
     std::cout << "double: " << d_converted << std::endl;
 }
 

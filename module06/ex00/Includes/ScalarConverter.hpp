@@ -7,7 +7,6 @@
 #include <sstream>
 #include "colors.hpp"
 
-
 class ScalarConverter
 {
     private:
@@ -16,9 +15,7 @@ class ScalarConverter
         static bool isAChar(std::string lit);
         static std::string getIntFromDouble(double d_converted);
         static std::string getFloatFromDouble(double d_converted);
-        static bool hasDecimalPart(float d_converted);
         static void convertChar(std::string lit);
-
         static bool handleNan(std::string lit);
         static bool handleInf(std::string lit);
         static void print_err(int mask);

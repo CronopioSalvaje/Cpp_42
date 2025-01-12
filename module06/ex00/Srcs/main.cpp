@@ -33,7 +33,7 @@ int main(int ac, char **av)
         ScalarConverter::convert(toConvert);
     }
 
-    std::cout << RED << "------------------------" << RESET << std::endl;
+  /*  std::cout << RED << "------------------------" << RESET << std::endl;
     ScalarConverter::convert("0");
     
     std::cout << RED << "------------------------" << RESET << std::endl;
@@ -43,9 +43,9 @@ int main(int ac, char **av)
     ScalarConverter::convert("42");
 
     std::cout << RED << "------------------------" << RESET << std::endl;
-    ScalarConverter::convert("nan");
+    ScalarConverter::convert("nan");*/
 
-    std::cout << RED << "------------------------" << RESET << std::endl;
+    /*std::cout << RED << "------------------------" << RESET << std::endl;
     ScalarConverter::convert("nanf");
 
     std::cout << RED << "------------------------" << RESET << std::endl;
@@ -82,6 +82,6 @@ int main(int ac, char **av)
     ss >> value;
     ScalarConverter::convert(value);
     ss.clear();
-    value.clear();
+    value.clear();*/
     return 0;
 }
