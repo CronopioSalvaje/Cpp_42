@@ -14,6 +14,12 @@
 
 int main(int ac, char **av)
 {
+    if (ac != 2)
+    {
+        std::cout << BOLD_RED << "should have one literal C++ arg" << RESET << std::endl;
+        return (1);
+    }
+
     int max = std::numeric_limits<int>::max();
     int min = -std::numeric_limits<int>::max() - 1;
     std::stringstream ss;
@@ -33,55 +39,5 @@ int main(int ac, char **av)
         ScalarConverter::convert(toConvert);
     }
 
-  /*  std::cout << RED << "------------------------" << RESET << std::endl;
-    ScalarConverter::convert("0");
-    
-    std::cout << RED << "------------------------" << RESET << std::endl;
-    ScalarConverter::convert("33");
-
-    std::cout << RED << "------------------------" << RESET << std::endl;
-    ScalarConverter::convert("42");
-
-    std::cout << RED << "------------------------" << RESET << std::endl;
-    ScalarConverter::convert("nan");*/
-
-    /*std::cout << RED << "------------------------" << RESET << std::endl;
-    ScalarConverter::convert("nanf");
-
-    std::cout << RED << "------------------------" << RESET << std::endl;
-    ScalarConverter::convert("+inf");
-
-    std::cout << RED << "------------------------" << RESET << std::endl;
-    ScalarConverter::convert("-inf");
-
-    std::cout << RED << "------------------------" << RESET << std::endl;
-    ScalarConverter::convert("+inff");
-
-    std::cout << RED << "------------------------" << RESET << std::endl;
-    ScalarConverter::convert("-inff");
-
-    std::cout << RED << "------------------------" << RESET << std::endl;
-    ScalarConverter::convert("c");
-
-    std::cout << RED << "------------------------" << RESET << std::endl;
-    ScalarConverter::convert(intMax);
-
-    std::cout << RED << "------------------------" << RESET << std::endl;
-    ScalarConverter::convert(intMin);
-
-    std::cout << RED << "------------------------" << RESET << std::endl;
-    ss.clear();
-    ss << 456.654;
-    std::string value;
-    ss >> value;
-    ScalarConverter::convert(value);
-    std::cout << RED << "------------------------" << RESET << std::endl;
-    ss.clear();
-    value.clear();
-    ss << 116.15;
-    ss >> value;
-    ScalarConverter::convert(value);
-    ss.clear();
-    value.clear();*/
     return 0;
 }
