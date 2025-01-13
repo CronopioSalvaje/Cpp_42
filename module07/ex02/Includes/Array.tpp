@@ -6,16 +6,15 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 19:13:32 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/10/27 21:18:14 by calbor-p         ###   ########.fr       */
+/*   Updated: 2025/01/13 19:45:01 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
 
 template<typename T>
-Array<T>::Array()
+Array<T>::Array():elements(NULL), length(0)
 {
-    elements = new T[0];
 }
 
 template<typename T>
@@ -25,23 +24,24 @@ Array<T>::Array(unsigned int length): length(length)
 }
 
 template<typename T>
-Array<T>::Array(T &arr)
+Array<T>::Array(const Array<T> &arr)
 {
-    if (*this != arr)
-        *this = arr;
+    this->elements = NULL;
+    this->length = 0; 
+    *this = arr;
 }
 
-
 template<typename T>
-Array<T> &Array<T>::operator=(T &arr)
-{
-    if (this->elements)
-        delete [] elements;
-    length = arr.size();
-    elements = new T[length];
-    for(size_t i = 0; i < length; ++i)
-    {
-        this->elements[i] = arr[i];
+Array<T> &Array<T>::operator=(const Array<T> &arr) {
+    if (this != &arr) {
+        T *temp = new T[arr.length];
+        for(size_t i = 0; i < arr.length; i++) {
+            temp[i] = arr.elements[i];
+        }
+        if (this->elements)
+            delete[] this->elements;
+        elements = temp;
+        length = arr.length;
     }
     return *this;
 }

@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 18:56:31 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/10/27 21:14:21 by calbor-p         ###   ########.fr       */
+/*   Updated: 2025/01/13 19:26:16 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,8 @@ class Array
     public  :
         Array();
         Array(unsigned int length);
-        Array(T &arr);
-        Array &operator=(T &arr);
-
+        Array(const Array<T> &arr);      
+        Array<T> &operator=(const Array<T> &arr); 
         const T &operator[](size_t index) const
         {
             if (index >= length)
@@ -43,7 +42,6 @@ class Array
         }
         unsigned int size();        
         ~Array();
-    
 };
 
 #include "Array.tpp"
