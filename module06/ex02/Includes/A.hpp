@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 21:28:24 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/12/06 17:23:02 by calbor-p         ###   ########.fr       */
+/*   Updated: 2025/01/13 20:14:05 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ class A : public Base
         std::string _name;
     public:
         A(void);
-        void identify();
         ~A();
 };
 

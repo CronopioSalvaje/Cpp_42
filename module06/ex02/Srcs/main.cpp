@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 19:30:38 by ls                #+#    #+#             */
-/*   Updated: 2024/12/06 17:47:03 by calbor-p         ###   ########.fr       */
+/*   Updated: 2025/01/13 20:13:16 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "../Includes/A.hpp"
 #include "../Includes/B.hpp"
 #include "../Includes/C.hpp"
+#include <typeinfo> 
 #include <ctime>
 #include <cstdlib>
 #include <unistd.h>
@@ -53,8 +54,33 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
-    p.identify();
+    try{
+        A testA = dynamic_cast< A&>(p);
+        std::cout << "A" << std::endl;
+    }
+    catch (const std::bad_cast& e)
+    {
+        (void) e;
+    }
+    try{
+        B testB = dynamic_cast< B&>(p);
+        std::cout << "B" << std::endl;
+    }
+    catch (const std::bad_cast& e)
+    {
+        (void) e;
+    }
+    try{
+        C testC = dynamic_cast< C&>(p);
+        std::cout << "C" << std::endl;
+    }
+    catch( const std::bad_cast& e)
+    {
+        (void) e;
+    }
 }
+
+
 
 int main()
 {

@@ -6,7 +6,7 @@
 /*   By: calbor-p <calbor-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 21:19:03 by calbor-p          #+#    #+#             */
-/*   Updated: 2024/12/06 17:23:19 by calbor-p         ###   ########.fr       */
+/*   Updated: 2025/01/13 20:13:52 by calbor-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ class C : public Base
     private:
     public:
         C(void);
-        void identify();
         ~C();
 };
 
