@@ -10,13 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#define GREEN "\033[32m"
-#define DEFAULT_COLOR "\033[0m"
-
+#include "../Includes/colors.hpp"
 #include "../Includes/Array.hpp"
+
+template<typename T>
+void displayArray(T *arr)
+{
+    for (size_t i = 0; i < arr->size(); ++i)
+    {
+        std::cout << (*arr)[i];
+        if (i != arr->size() - 1)
+           std::cout << " ";
+    }
+    std::cout << std::endl;
+}
 
 int main()
 {
+    std::cout << BOLD_BLUE << "===COPLIEN'S FORM===" << RESET << std::endl;
+    Array<int> from(5);
+    for (size_t i = 0; i < from.size(); ++i)
+    {
+        from[i] = i * 3;       
+    }
+    Array<int> to(from);
+    to[2] = 42;
+    displayArray(&from);
+    displayArray(&to);
+
+
+
+
+    std::cout << BOLD_BLUE << "===INTs ARRAY==="<< RESET << std::endl;
     Array<int> myArray(5);
     for (size_t i = 0; i < myArray.size(); ++i)
     {
@@ -33,13 +58,13 @@ int main()
          std::cout << std::endl << e.what() << std::endl;
     }
 
+    std::cout << BOLD_BLUE << "===FLOATs ARRAY===" << RESET << std::endl;
     Array<float> myfloatArray(16);
     for (size_t i = 0; i < myfloatArray.size(); ++i)
     {
         myfloatArray[i] = i * 3.02;
         std::cout << myfloatArray[i] << " ";
     }
-
 
     try
     {
@@ -50,6 +75,7 @@ int main()
          std::cout << std::endl << e.what() << std::endl;
     }
 
+    std::cout << BOLD_BLUE << "===STRINGs ARRAY===" << RESET << std::endl;
     Array<std::string> mystringArray(16);
     for (size_t i = 0; i < mystringArray.size(); ++i)
     {

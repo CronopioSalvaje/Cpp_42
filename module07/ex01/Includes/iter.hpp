@@ -38,7 +38,4 @@ void iter(T *array, size_t length, void (*f)(T&))
     }
 }
 
-
 #endif
-
-

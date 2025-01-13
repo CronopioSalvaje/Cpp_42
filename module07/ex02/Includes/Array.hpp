@@ -25,6 +25,15 @@ class Array
     public  :
         Array();
         Array(unsigned int length);
+        Array(T &arr);
+        Array &operator=(T &arr);
+
+        const T &operator[](size_t index) const
+        {
+            if (index >= length)
+                throw OutOfRangeException("out of range");
+            return elements[index];
+        }
 
         T &operator[](size_t index)
         {
