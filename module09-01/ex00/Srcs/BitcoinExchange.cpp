@@ -28,15 +28,66 @@ bool isValidInRange(std::string nbr, int min, int max, t_date *d)
     switch (max)
     {
         case 12: d->month = number; break;
+        case 28:
+        case 29:
+        case 30:
         case 31: d->day = number; break;    
         default: d->year = number; break;
     }
     return (number >= min && number <= max);
 }
 
+int getnbfromstr(std::string nbr)
+{
+    std::stringstream ss;
+    int number = 0;
+    ss << nbr;
+    ss >> number;
+    if (ss.fail())
+        return INT_MAX;
+    return number;
+}
+
+int febdaysinbissextilyears(int year)
+{
+    if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
+        return 29;
+    return 28;
+}
+
+int dayinmonth(std::string month, std::string year)
+{
+    int m = getnbfromstr(month);
+    int y = getnbfromstr(year);
+    switch (m)
+    {
+        case 2: return febdaysinbissextilyears(y);
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12: return 31; break;
+        case 4:
+        case 6:
+        case 9:
+        case 11: return 30; break;
+        default: return INT_MAX; break;
+    }
+    return INT_MAX;
+
+}
+
 bool isValidDay(std::string date, t_date *d){
+    std::string month = date.substr(5,2);
     std::string day = date.substr(8,2);
-    return isValidInRange(day, 1, 31, d);
+    std::string year = date.substr(0,4);
+
+    int max = dayinmonth(month, year);
+    if (max == INT_MAX)
+        return false;
+    return isValidInRange(day, 1, max, d);
 }
 
 bool isValidMonth(std::string date, t_date *d){
@@ -115,7 +166,8 @@ double BitcoinExchange::getRate(std::pair<t_date, double> &pair)
 
 void BitcoinExchange::process(std::pair<t_date, double> pair)
 {
-    std::cout << pair.first.d_str << " => " << pair.second << " = " << pair.second * getRate(pair) << std::endl;
+    float val = static_cast<float>(pair.second * getRate(pair));
+    std::cout << pair.first.d_str << " => " << pair.second << " = " << val << std::endl;
 }
 
 void BitcoinExchange::parseline(std::string &line, std::map<t_date, double> &map, int ctx)

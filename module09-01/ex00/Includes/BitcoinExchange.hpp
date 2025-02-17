@@ -2,6 +2,8 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
+#include <climits>
 #include "colors.hpp"
 #include <fstream>
 #include <sstream>
